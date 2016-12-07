@@ -1,0 +1,99 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.ab_screening_need.v0
+
+concept
+	[at0000]	-- Antibody screening need assesment
+language
+	original_language = <[ISO_639-1::nl]>
+description
+	original_author = <
+		["name"] = <"Arianne">
+		["email"] = <"a.verweij@eurotransplant.org">
+		["organisation"] = <"Eurotransplant">
+		["date"] = <"2016-12-06">
+	>
+	details = <
+		["nl"] = <
+			language = <[ISO_639-1::nl]>
+			purpose = <"Record the possible risk for immunization ">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"Initial">
+	other_contributors = <"Renate", "Laura">
+	other_details = <
+		["licence"] = <"CC BY SA 3.0">
+		["MD5-CAM-1.0.1"] = <"951A5D2147774A2D3924FEBBF6B6AF3D">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Antibody screening need assesment
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Blood transfusion before registration
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- Blood transfusion after registration
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- Number of pregnancies
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|>=0|}
+							}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Number of children
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|>=0|}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["nl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Antibody screening need assesment">
+					description = <"Antibody screening need assesment ">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Blood transfusion before registration">
+					description = <"Did the recipient receive a blood transfusion before registration">
+				>
+				["at0003"] = <
+					text = <"Blood transfusion after registration">
+					description = <"Did the recipient receive a blood transfusion after registration">
+				>
+				["at0004"] = <
+					text = <"Number of pregnancies">
+					description = <"Number of pregnancies">
+				>
+				["at0005"] = <
+					text = <"Number of children">
+					description = <"Number of children">
+				>
+			>
+		>
+	>
