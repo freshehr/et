@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>7b7ac517-a53c-428b-b061-9de3afa75e58</id>
+  <name>Immunology Report v.0</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.report.v1" concept_name="Report" name="Immunology report">
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0" concept_name="Laboratory test" path="/content">
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.specimen.v0" concept_name="Specimen" path="/data[at0001]/events[at0002]/data[at0003]/items[at0065]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.hla_panel.v0" concept_name="HLA panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0003]" clone="true" name="High density" />
+        <Rule path="/items[at0003]" clone="true" name="Low density" />
+      </Items>
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.match_typing_et.v0" concept_name="Match typing ET" path="/content">
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.hla_panel.v0" concept_name="HLA panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]">
+        <Rule path="/items[at0003]" max="0" />
+        <Rule path="/items[at0004]" max="0" />
+      </Items>
+    </Content>
+    <Context />
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.report.v1">
+    <digest id="MD5-CAM-1.0.1">FD053BE0456D849CACD864F274EED32E</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0">
+    <digest id="MD5-CAM-1.0.1">64F4898018F4D87C7D8ADAF36558AAF7</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.specimen.v0">
+    <digest id="MD5-CAM-1.0.1">328C511116FD83D7F25973284D8D9F60</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.hla_panel.v0">
+    <digest id="MD5-CAM-1.0.1">CF0D690F3B557EAF350ACE88CEFEF482</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.match_typing_et.v0">
+    <digest id="MD5-CAM-1.0.1">84420EF6E9F777EE393D900EEF76DE8B</digest>
+  </integrity_checks>
+</template>

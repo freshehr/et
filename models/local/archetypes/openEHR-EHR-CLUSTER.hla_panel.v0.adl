@@ -1,0 +1,119 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.hla_panel.v0
+
+concept
+	[at0000]	-- HLA panel
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["email"] = <"hildi@freshehr.com">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["date"] = <"2016-12-07">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the recording and reporting of antigen data for human leukocyte antigen screening.">
+			use = <"Use to record antigen data.">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"Initial">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"CC BY-SA 3.0">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["MD5-CAM-1.0.1"] = <"CF0D690F3B557EAF350ACE88CEFEF482">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- HLA panel
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..*} matches {	-- Broad
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[ac0001]}		-- WHO HLA nomenclature
+					}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..*} matches {	-- Split
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[ac0002]}		-- WHO HLA nomenclature
+					}
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..*} matches {	-- Allele
+				name matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0005, 	-- High density
+							at0006]	-- Low density
+						}
+					}
+				}
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..*} matches {	-- Public
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"HLA panel">
+					description = <"Human leukocyte antigens panel.">
+				>
+				["at0001"] = <
+					text = <"Broad">
+					description = <"Broad">
+				>
+				["at0002"] = <
+					text = <"Split">
+					description = <"Split">
+				>
+				["at0003"] = <
+					text = <"Allele">
+					description = <"Allele">
+				>
+				["at0004"] = <
+					text = <"Public">
+					description = <"Public">
+				>
+				["at0005"] = <
+					text = <"High density">
+					description = <"High density.">
+				>
+				["at0006"] = <
+					text = <"Low density">
+					description = <"Low density.">
+				>
+			>
+		>
+	>
+	constraint_definitions = <
+		["en"] = <
+			items = <
+				["ac0001"] = <
+					text = <"WHO HLA nomenclature">
+					description = <"Coded from WHO HLA nomenclature.">
+				>
+				["ac0002"] = <
+					text = <"WHO HLA nomenclature">
+					description = <"Coded from WHO HLA nomenclature.">
+				>
+			>
+		>
+	>
