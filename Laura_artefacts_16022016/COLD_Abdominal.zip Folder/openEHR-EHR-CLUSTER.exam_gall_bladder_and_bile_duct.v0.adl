@@ -1,0 +1,232 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.exam_gall_bladder_and_bile_duct.v0
+
+concept
+	[at0000]	-- Exam gall bladder and bile duct
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Bert Verhees">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To report the exam of the gall bladder and bile duct condition in the context of a general abdomen examination for Eurotransplant. It reports the existence of cholethiasis, cholecystitis, space occupying lesions and the condition of the extrahepatic bile duct which can be normal, dilated or have bile duct stones.
+The Space Occupying Lesion [Cluster] is an archetype slot which points to the Space Occupying Lesion archetype from Eurotranspalnt, which occurs in the same template (COLD) a few times">
+			use = <"Regarding Cholethiasis, Cholecystitis and Extrahepatic bile duct:
+They contain inside this cluster a Status-item and a CodedText with the same name as the cluster.
+The status item (also coded text) contains only one item: \"Not investigated\", it is optional, as also is the other coded text. Because the archetype model, currently, does not support dependent conditions, it must be used in this way:
+- It is important to understand the following: 
+Like a business-rule following must be noted: A coded text must be used if the status-item is not used. On the other hand, if the status-item (\"Not investigated\") is used, the other coded text in the same cluster will be ignored by the software.
+">
+			keywords = <"gall bladder", "bile duct", "examination", "eurotransplant">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"FCF5D266D2704156CF3C77DB0BC16523">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Exam gall bladder and bile duct
+		items cardinality matches {1..*; unordered} matches {
+			allow_archetype CLUSTER[at0033] occurrences matches {0..1} matches {	-- Examination details
+				include
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.examination_details(-[a-zA-Z0-9_]+)*\.v0/}
+			}
+			allow_archetype CLUSTER[at0003] occurrences matches {0..*} matches {	-- Space Occupying Lesion
+				include
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.exam_space_occupying_lesion(-[a-zA-Z0-9_]+)*\.v0/}
+			}
+			CLUSTER[at0010] occurrences matches {0..1} matches {	-- Extrahepatic bile duct
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0011] occurrences matches {0..1} matches {	-- Status
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {[local::at0013]}		-- Not investigated
+							}
+						}
+					}
+					ELEMENT[at0012] occurrences matches {0..1} matches {	-- Extrahepatic bile duct
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0015, 	-- Normal
+									at0016, 	-- Dilated
+									at0017, 	-- Choledocholithiasis
+									at0018]	-- Not assessable
+								}
+							}
+						}
+					}
+				}
+			}
+			CLUSTER[at0019] occurrences matches {0..1} matches {	-- Cholelithiasis
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0021] occurrences matches {0..1} matches {	-- Status
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {[local::at0023]}		-- Not investigated
+							}
+						}
+					}
+					ELEMENT[at0026] occurrences matches {0..1} matches {	-- Cholelithiasis
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0027, 	-- Yes
+									at0028, 	-- No
+									at0029]	-- Not accessable
+								}
+							}
+						}
+					}
+				}
+			}
+			CLUSTER[at0020] occurrences matches {0..1} matches {	-- Cholecystitis
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0022] occurrences matches {0..1} matches {	-- Status
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {[local::at0024]}		-- Not investigated
+							}
+						}
+					}
+					ELEMENT[at0025] occurrences matches {0..1} matches {	-- Cholecystitis
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0030, 	-- Yes
+									at0031, 	-- No
+									at0032]	-- Not accessable
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	terminologies_available = <"SNOMED-CT", ...>
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Exam gall bladder and bile duct">
+					description = <"unknown">
+				>
+				["at0003"] = <
+					text = <"Space Occupying Lesion">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Extrahepatic bile duct">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Status">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Extrahepatic bile duct">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Not investigated">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Normal">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Dilated">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Choledocholithiasis">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Not assessable">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Cholelithiasis">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Cholecystitis">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Status">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Status">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Not investigated">
+					description = <"*">
+				>
+				["at0024"] = <
+					text = <"Not investigated">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"Cholecystitis">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"Cholelithiasis">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"Yes">
+					description = <"*">
+				>
+				["at0028"] = <
+					text = <"No">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"Not accessable">
+					description = <"*">
+				>
+				["at0030"] = <
+					text = <"Yes">
+					description = <"*">
+				>
+				["at0031"] = <
+					text = <"No">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Not accessable">
+					description = <"*">
+				>
+				["at0033"] = <
+					text = <"Examination details">
+					description = <"*">
+				>
+			>
+		>
+	>
+	term_bindings = <
+		["SNOMED-CT"] = <
+			items = <
+				["at0010"] = <[SNOMED-CT::16014003]>
+			>
+		>
+	>

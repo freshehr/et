@@ -1,0 +1,126 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.exam_vena_cava.v0
+
+concept
+	[at0000]	-- Exam vena cava
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Bert Verhees">
+		["date"] = <"2017-01-05">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"The report the results of an vena cava examination.
+This archetype is used in the context of Eurotransplant. ">
+			use = <"Regarding Flow:
+It contains inside this cluster a Status-item and a CodedText with the same name as the cluster.
+The status item (also coded text) contains only one item: \"Not investigated\", it is optional, as also is the other coded text. Because the archetype model, currently, does not support dependent conditions, it must be used in this way:
+- It is important to understand the following: 
+Like a business-rule following must be noted: A coded text must be used if the status-item is not used. On the other hand, if the status-item (\"Not investigated\") is used, the other coded text in the same cluster will be ignored by the software.">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"B323EAAC6FF09B83198185BE15E25D34">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Exam vena cava
+		items cardinality matches {1..*; unordered} matches {
+			allow_archetype CLUSTER[at0018] occurrences matches {0..1} matches {	-- Examination details
+				include
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.examination_details(-[a-zA-Z0-9_]+)*\.v0/}
+			}
+			CLUSTER[at0008] occurrences matches {0..1} matches {	-- Flow
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0009] occurrences matches {0..1} matches {	-- Status
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {[local::at0011]}		-- Not investigated
+							}
+						}
+					}
+					ELEMENT[at0010] occurrences matches {0..1} matches {	-- Flow
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0013, 	-- Yes
+									at0014, 	-- No
+									at0015, 	-- Volume depleted
+									at0016, 	-- Volume overload
+									at0017]	-- Not assessable
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	terminologies_available = <"SNOMED-CT", ...>
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Exam vena cava">
+					description = <"unknown">
+				>
+				["at0008"] = <
+					text = <"Flow">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Status">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Flow">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Not investigated">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Yes">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"No">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Volume depleted">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Volume overload">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Not assessable">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Examination details">
+					description = <"*">
+				>
+			>
+		>
+	>
+	term_bindings = <
+		["SNOMED-CT"] = <
+			items = <
+				["at0008"] = <[SNOMED-CT::244405007]>
+			>
+		>
+	>
