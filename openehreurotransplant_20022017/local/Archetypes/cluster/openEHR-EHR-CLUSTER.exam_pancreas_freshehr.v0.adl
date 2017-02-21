@@ -1,0 +1,165 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.exam_pancreas_freshehr.v0
+
+concept
+	[at0000]	-- Exam pancreas freshEHR
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["email"] = <"hildi@freshehr.com">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["date"] = <"2017-02-20">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the recording of pancreas examination details as part of the Abdominal Report for the Eurotransplant dataset.">
+			use = <"Use to capture pancreas examination details in the context of an abdominal examination report.">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"Initial">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"CC-BY-SA 3.0">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["MD5-CAM-1.0.1"] = <"A02C5571F65555F6975B4C61972FE992">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Exam pancreas freshEHR
+		items cardinality matches {1..*; unordered} matches {
+			allow_archetype CLUSTER[at0004] occurrences matches {0..*} matches {	-- Space occupying lesion
+				include
+					archetype_id/value matches {/.*/}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {	-- Parenchyma
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0015, 	-- Normal
+							at0016, 	-- Lipomatosis
+							at0017, 	-- Oedema
+							at0018, 	-- Fibrosis
+							at0019, 	-- Not assessable
+							at0020]	-- Not investigated
+						}
+					}
+				}
+			}
+			ELEMENT[at0007] occurrences matches {0..1} matches {	-- Signs of calcification
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0025, 	-- Yes
+							at0026, 	-- No
+							at0027, 	-- Not assessable
+							at0028]	-- Not investigated
+						}
+					}
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..1} matches {	-- Signs of pancreatitis
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0029, 	-- Yes
+							at0030, 	-- No
+							at0031, 	-- Not assessable
+							at0032]	-- Not investigated
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Exam pancreas freshEHR">
+					description = <"Local cluster for Eurotransplant pancreas examination.">
+				>
+				["at0004"] = <
+					text = <"Space occupying lesion">
+					description = <"Slot to insert space occupying lesion details.">
+				>
+				["at0005"] = <
+					text = <"Parenchyma">
+					description = <"Statement about the finding of the parenchyma.">
+				>
+				["at0007"] = <
+					text = <"Signs of calcification">
+					description = <"Statement about signs of calcification in the pancreas.">
+				>
+				["at0008"] = <
+					text = <"Signs of pancreatitis">
+					description = <"Statement about signs of pancreatitis.">
+				>
+				["at0015"] = <
+					text = <"Normal">
+					description = <"Parenchyma is normal.">
+				>
+				["at0016"] = <
+					text = <"Lipomatosis">
+					description = <"Parenchyma shows lipomatosis.">
+				>
+				["at0017"] = <
+					text = <"Oedema">
+					description = <"Parenchyma shows oedema.">
+				>
+				["at0018"] = <
+					text = <"Fibrosis">
+					description = <"Parenchyma shows fibrosis.">
+				>
+				["at0019"] = <
+					text = <"Not assessable">
+					description = <"Parenchyma is investigated but not assessable.">
+				>
+				["at0020"] = <
+					text = <"Not investigated">
+					description = <"Parenchyma has not been investigated.">
+				>
+				["at0025"] = <
+					text = <"Yes">
+					description = <"The pancreas shows signs of calcification.">
+				>
+				["at0026"] = <
+					text = <"No">
+					description = <"The pancreas does not show signs of calcification.">
+				>
+				["at0027"] = <
+					text = <"Not assessable">
+					description = <"The pancreas is investigated for signs of calcification but these are not assessable.">
+				>
+				["at0028"] = <
+					text = <"Not investigated">
+					description = <"Signs of calcification in the pancreas have not been investigated.">
+				>
+				["at0029"] = <
+					text = <"Yes">
+					description = <"The pancreas shows signs of pancreatitis.">
+				>
+				["at0030"] = <
+					text = <"No">
+					description = <"The pancreas does not show signs of pancreatitis.">
+				>
+				["at0031"] = <
+					text = <"Not assessable">
+					description = <"The pancreas is investigated for signs of pancreatitis but these are not assessable.">
+				>
+				["at0032"] = <
+					text = <"Not investigated">
+					description = <"The pancreas has not been investigated for signs of pancreatitis.">
+				>
+			>
+		>
+	>

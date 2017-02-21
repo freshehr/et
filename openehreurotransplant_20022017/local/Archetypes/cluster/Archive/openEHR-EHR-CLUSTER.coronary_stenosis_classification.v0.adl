@@ -1,0 +1,174 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.coronary_stenosis_classification.v0
+
+concept
+	[at0000]	-- Coronary stenosis classification
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Bert Verhees">
+		["date"] = <"2017-02-08">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For Eurotransplant in COLD (donor) thoracic reports">
+			use = <"To use to specify stenosis in the Coronary Angiography archetype.
+
+">
+			keywords = <"coronary", "angiography", "stenosis">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"F3374EEA815F78F742EC1233256C35E5">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Coronary stenosis classification
+		items cardinality matches {1..*; unordered} matches {
+			CLUSTER[at0001] occurrences matches {0..1} matches {	-- Coronary Stenosis
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Coronary Stenosis
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0003, 	-- Normal
+									at0004, 	-- Luminal irregularities & stenosis <25%
+									at0005, 	-- Stenosis 26-50%
+									at0006, 	-- Stenosis 51-75%
+									at0007, 	-- Stenosis 76-90%
+									at0008, 	-- Stenosis 91-99%
+									at0009, 	-- Occlusion
+									at0010, 	-- Not existent
+									at0011]	-- Not assessable
+								}
+							}
+						}
+					}
+					ELEMENT[at0012] occurrences matches {0..1} matches {	-- Status
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {[local::at0013]}		-- Not investigated
+							}
+						}
+					}
+				}
+			}
+			CLUSTER[at0014] occurrences matches {0..1} matches {	-- Coronary Stenosis types
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0015] occurrences matches {0..1} matches {	-- Coronary Stenosis types
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0016, 	-- None
+									at0017, 	-- Luminal irreguarities
+									at0018, 	-- A (≤1cm, concentric)
+									at0019, 	-- B (1-2cm, excentric)
+									at0020]	-- C (> 2cm, diffuse lesion)
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Coronary stenosis classification">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Coronary Stenosis">
+					description = <"*">
+				>
+				["at0002"] = <
+					text = <"Coronary Stenosis">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Normal">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Luminal irregularities & stenosis <25%">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Stenosis 26-50%">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Stenosis 51-75%">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Stenosis 76-90%">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Stenosis 91-99%">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Occlusion">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Not existent">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Not assessable">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Status">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Not investigated">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Coronary Stenosis types">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Coronary Stenosis types">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Luminal irreguarities">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"A (≤1cm, concentric)">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"B (1-2cm, excentric)">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"C (> 2cm, diffuse lesion)">
+					description = <"*">
+				>
+			>
+		>
+	>

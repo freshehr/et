@@ -1,0 +1,177 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.intravascular_pressure.v0
+
+concept
+	[at0000]	-- Intravascular pressure
+language
+	original_language = <[ISO_639-1::nl]>
+description
+	original_author = <
+		["name"] = <"Bert Verhees">
+		["date"] = <"2017-02-02">
+	>
+	details = <
+		["nl"] = <
+			language = <[ISO_639-1::nl]>
+			purpose = <"To record central venous pressure, normally via cannulation of the internal jugular vein.
+For Eurotransplant in COLD (donor) thoracic reports, that is why it is a cluster">
+			use = <"">
+			misuse = <"Not to be used for systemic blood pressure. Use 'observation.blood_pressure' for this.">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"88B213444DDAE16D3DE797CF99E6E1AB">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Intravascular pressure
+		items cardinality matches {1..*; unordered} matches {
+			allow_archetype CLUSTER[at0001] occurrences matches {0..*} matches {	-- Location
+				include
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.anatomical_location(-[a-zA-Z0-9_]+)*\.v1/}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {	-- Pressure
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::125]>
+						list = <
+							["1"] = <
+								units = <"mm[Hg]">
+							>
+							["2"] = <
+								units = <"cm[H20]">
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {	-- Relative pressure
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0004, 	-- Markedly reduced
+							at0005, 	-- Lowered
+							at0006, 	-- Normal/expected
+							at0007, 	-- Raised
+							at0008]	-- Markedly increased
+						}
+					}
+				}
+			}
+			ELEMENT[at0009] occurrences matches {0..1} matches {	-- Phase of heart cycle
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0010, 	-- Systolic
+							at0011, 	-- Diastolic
+							at0012, 	-- Pre-systolic
+							at0013, 	-- Pre-diastolic
+							at0014]	-- Whole cycle
+						}
+					}
+				}
+			}
+			ELEMENT[at0015] occurrences matches {0..1} matches {	-- Multimedia
+				value matches {
+					DV_MULTIMEDIA matches {
+						media_type matches {[openEHR::]}
+					}
+				}
+			}
+			ELEMENT[at0016] occurrences matches {0..1} matches {	-- Comment
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	terminologies_available = <"SNOMED-CT", ...>
+	term_definitions = <
+		["nl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Intravascular pressure">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Location">
+					description = <"*">
+				>
+				["at0002"] = <
+					text = <"Pressure">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Relative pressure">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Markedly reduced">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Lowered">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Normal/expected">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Raised">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Markedly increased">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Phase of heart cycle">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Systolic">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Diastolic">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Pre-systolic">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Pre-diastolic">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Whole cycle">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Multimedia">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Comment">
+					description = <"*">
+				>
+			>
+		>
+	>
+	term_bindings = <
+		["SNOMED-CT"] = <
+			items = <
+				["at0010"] = <[SNOMED-CT::111973004]>
+				["at0011"] = <[SNOMED-CT::271650006]>
+			>
+		>
+	>

@@ -1,0 +1,258 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.exam_liver_freshehr.v0
+
+concept
+	[at0000]	-- Exam liver freshEHR
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["email"] = <"hildi@freshehr.com">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["date"] = <"2017-02-20">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the recording of liver examination details as part of the Abdominal Report for the Eurotransplant dataset.">
+			use = <"Use to capture liver examination details in the context of an abdominal examination report.">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"Initial">
+	other_contributors = <>
+	other_details = <
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["licence"] = <"CC-BY-SA 3.0">
+		["MD5-CAM-1.0.1"] = <"CBD362255496A3FD6BB34C17B6FBD1E6">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Exam liver freshEHR
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Size (MCL measured)
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::122]>
+						list = <
+							["1"] = <
+								units = <"cm">
+								magnitude = <|>=0.0|>
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {	-- Size in relation to MCL
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0009, 	-- Normal
+							at0010, 	-- Small
+							at0011, 	-- Large
+							at0012, 	-- Enlarged
+							at0013, 	-- Not assessable
+							at0014]	-- Not investigated
+						}
+					}
+				}
+			}
+			allow_archetype CLUSTER[at0004] occurrences matches {0..*} matches {	-- Space occupying lesion
+				include
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.exam_space_occupying_lesion(-[a-zA-Z0-9_]+)*\.v0/}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {	-- Parenchyma
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0015, 	-- Normal
+							at0016, 	-- Slightly Hyperechogenous (borderline steatosis)
+							at0017, 	-- Severly hyperechogenous (remarkable steatosis)
+							at0018, 	-- Cirrhosis
+							at0019, 	-- Not assessable
+							at0020]	-- Not investigated
+						}
+					}
+				}
+			}
+			ELEMENT[at0006] occurrences matches {0..1} matches {	-- Liver edge
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0021, 	-- Sharp
+							at0022, 	-- Blunt
+							at0023, 	-- Not assessable
+							at0024]	-- Not investigated
+						}
+					}
+				}
+			}
+			ELEMENT[at0007] occurrences matches {0..1} matches {	-- Intra-hepatic bile duct
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0025, 	-- Normal
+							at0026, 	-- Dilated
+							at0027, 	-- Not assessable
+							at0028]	-- Not investigated
+						}
+					}
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..1} matches {	-- Portal vein
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0029, 	-- Open
+							at0030, 	-- Thrombosis or obstucted for other reasons
+							at0031, 	-- Not assessable
+							at0032]	-- Not investigated
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Exam liver freshEHR">
+					description = <"Local cluster for Eurotransplant liver examination.">
+				>
+				["at0001"] = <
+					text = <"Size (MCL measured)">
+					description = <"Size of the liver in centimetres.">
+				>
+				["at0002"] = <
+					text = <"Size in relation to MCL">
+					description = <"Statement about the size of the liver in relation to MCL.">
+				>
+				["at0004"] = <
+					text = <"Space occupying lesion">
+					description = <"Slot to insert space occupying lesion details.">
+				>
+				["at0005"] = <
+					text = <"Parenchyma">
+					description = <"Statement about the finding of the parenchyma.">
+				>
+				["at0006"] = <
+					text = <"Liver edge">
+					description = <"Statement about the finding of the liver edge.">
+				>
+				["at0007"] = <
+					text = <"Intra-hepatic bile duct">
+					description = <"Statement about the finding of the intra-hepatic bile duct.">
+				>
+				["at0008"] = <
+					text = <"Portal vein">
+					description = <"Statement about the finding of the portal vein.">
+				>
+				["at0009"] = <
+					text = <"Normal">
+					description = <"Size in relation to MCL is normal.">
+				>
+				["at0010"] = <
+					text = <"Small">
+					description = <"Size in relation to MCL is small.">
+				>
+				["at0011"] = <
+					text = <"Large">
+					description = <"Size in relation to MCL is large.">
+				>
+				["at0012"] = <
+					text = <"Enlarged">
+					description = <"Size in relation to MCL is enlarged.">
+				>
+				["at0013"] = <
+					text = <"Not assessable">
+					description = <"Size (in relation to MCL) is investigated but not assessable.">
+				>
+				["at0014"] = <
+					text = <"Not investigated">
+					description = <"Size in relation to MCL has not been investigated.">
+				>
+				["at0015"] = <
+					text = <"Normal">
+					description = <"Parenchyma is normal.">
+				>
+				["at0016"] = <
+					text = <"Slightly Hyperechogenous (borderline steatosis)">
+					description = <"Parenchyma is slightly hyperechogenous (borderline steatosis).">
+				>
+				["at0017"] = <
+					text = <"Severly hyperechogenous (remarkable steatosis)">
+					description = <"Parenchyma is severely hyperechogenous (remarkable steatosis).">
+				>
+				["at0018"] = <
+					text = <"Cirrhosis">
+					description = <"Parenchyma shows cirrhosis.">
+				>
+				["at0019"] = <
+					text = <"Not assessable">
+					description = <"Parenchyma is investigated but not assessable.">
+				>
+				["at0020"] = <
+					text = <"Not investigated">
+					description = <"Parenchyma has not been investigated.">
+				>
+				["at0021"] = <
+					text = <"Sharp">
+					description = <"Liver edge is sharp.">
+				>
+				["at0022"] = <
+					text = <"Blunt">
+					description = <"Liver edge is blunt.">
+				>
+				["at0023"] = <
+					text = <"Not assessable">
+					description = <"Liver edge is investigated but not assessable.">
+				>
+				["at0024"] = <
+					text = <"Not investigated">
+					description = <"Liver edge has not been investigated.">
+				>
+				["at0025"] = <
+					text = <"Normal">
+					description = <"Intra-hepatic bile duct is normal.">
+				>
+				["at0026"] = <
+					text = <"Dilated">
+					description = <"Intra-hepatic bile duct is dilated.">
+				>
+				["at0027"] = <
+					text = <"Not assessable">
+					description = <"Intra-hepatic bile duct is investigated but not assessable.">
+				>
+				["at0028"] = <
+					text = <"Not investigated">
+					description = <"Intra-hepatic bile duct has not been investigated.">
+				>
+				["at0029"] = <
+					text = <"Open">
+					description = <"The portal vein is open.">
+				>
+				["at0030"] = <
+					text = <"Thrombosis or obstucted for other reasons">
+					description = <"The portal vein shows thrombosis or is obstructed for other reasons.">
+				>
+				["at0031"] = <
+					text = <"Not assessable">
+					description = <"The portal vein is investigated but not assessable.">
+				>
+				["at0032"] = <
+					text = <"Not investigated">
+					description = <"The portal vein has not been investigated.">
+				>
+			>
+		>
+	>

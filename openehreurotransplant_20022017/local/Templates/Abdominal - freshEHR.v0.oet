@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>fd164332-1155-4e34-bb51-2ef6e2b98c7b</id>
+  <name>Abdominal - freshEHR.v0</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.report.v1" concept_name="Report" name="Abdominal investigations">
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.imaging_exam_uk.v0" concept_name="Imaging examination result UK" max="1" path="/content" name="Liver examination">
+      <Rule path="/data[at0001]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]" default="Liver examination" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]">
+        <constraint xsi:type="textConstraint">
+          <includedValues>CT</includedValues>
+          <includedValues>Ultrasound</includedValues>
+          <includedValues>MRI</includedValues>
+        </constraint>
+      </Rule>
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0044]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0007]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0024]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0014]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0008]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0020]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0021]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0023]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0046]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0046]/items[at0047]" max="0" />
+      <Rule path="/protocol[at0025]" hide_on_form="true" />
+      <Rule path="/protocol[at0025]/items[at0027]/items[at0034]" max="0" />
+      <Rule path="/protocol[at0025]/items[at0042]" max="0" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.exam_liver_freshehr.v0" concept_name="Exam liver freshEHR" path="/data[at0001]/events[at0002]/data[at0003]/items[at0043]" hide_on_form="true">
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.exam_space_occupying_lesion_freshehr.v0" concept_name="Space occupying lesion freshEHR" max="1" path="/items[at0004]" name="Space occupying lesion" />
+      </Items>
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.imaging_exam_uk.v0" concept_name="Imaging examination result UK" max="1" path="/content" name="Pancreas examination">
+      <Rule path="/data[at0001]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]" default="Pancreas examination" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]">
+        <constraint xsi:type="textConstraint">
+          <includedValues>CT</includedValues>
+          <includedValues>Ultrasound</includedValues>
+          <includedValues>MRI</includedValues>
+        </constraint>
+      </Rule>
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0044]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0007]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0024]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0014]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0008]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0020]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0021]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0023]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0046]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0046]/items[at0047]" max="0" />
+      <Rule path="/protocol[at0025]" hide_on_form="true" />
+      <Rule path="/protocol[at0025]/items[at0027]/items[at0034]" max="0" />
+      <Rule path="/protocol[at0025]/items[at0042]" max="0" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.exam_pancreas_freshehr.v0" concept_name="Exam pancreas freshEHR" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0043]" name="Exam pancreas">
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.exam_space_occupying_lesion_freshehr.v0" concept_name="Space occupying lesion freshEHR" max="1" path="/items[at0004]" name="Space occupying lesion">
+          <Rule path="/items[at0025]">
+            <constraint xsi:type="textConstraint">
+              <includedValues>Head</includedValues>
+              <includedValues>Tail</includedValues>
+              <includedValues>Multiple lesions</includedValues>
+            </constraint>
+          </Rule>
+        </Items>
+      </Items>
+    </Content>
+    <Context>
+      <Rule path="/context/other_context[at0001]" hide_on_form="true" />
+      <hide_on_form>true</hide_on_form>
+    </Context>
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.report.v1">
+    <digest id="MD5-CAM-1.0.1">FD053BE0456D849CACD864F274EED32E</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.imaging_exam_uk.v0">
+    <digest id="MD5-CAM-1.0.1">A1227DCEA270A42C6772EED3C0CAD2AA</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.exam_liver_freshehr.v0">
+    <digest id="MD5-CAM-1.0.1">CBD362255496A3FD6BB34C17B6FBD1E6</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.exam_space_occupying_lesion_freshehr.v0">
+    <digest id="MD5-CAM-1.0.1">78E22A019980F321E96987111C005A55</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.exam_pancreas_freshehr.v0">
+    <digest id="MD5-CAM-1.0.1">A02C5571F65555F6975B4C61972FE992</digest>
+  </integrity_checks>
+</template>

@@ -1,0 +1,95 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.antigens.v0
+
+concept
+	[at0000]	-- Antigens
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"273E1F607C17C9643B0252B797E80D55">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Antigens
+		items cardinality matches {1..*; unordered} matches {
+			CLUSTER[at0001] occurrences matches {0..1} matches {	-- Unacceptable antigens
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..*} matches {	-- Result
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {	-- comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0003] occurrences matches {0..1} matches {	-- Acceptable antigens
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0004] occurrences matches {0..*} matches {	-- Result
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Antigens">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Unacceptable antigens">
+					description = <"*">
+				>
+				["at0002"] = <
+					text = <"Result">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Acceptable antigens">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Result">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"comment">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"comment">
+					description = <"*">
+				>
+			>
+		>
+	>

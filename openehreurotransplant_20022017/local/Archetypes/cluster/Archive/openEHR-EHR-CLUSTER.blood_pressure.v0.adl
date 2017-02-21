@@ -1,0 +1,139 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.blood_pressure.v0
+
+concept
+	[at0000]	-- Blood pressure
+language
+	original_language = <[ISO_639-1::nl]>
+description
+	original_author = <
+		["name"] = <"Bert Verhees">
+		["date"] = <"2017-02-02">
+	>
+	details = <
+		["nl"] = <
+			language = <[ISO_639-1::nl]>
+			purpose = <"To register the systemic arterial blood pressure of an individual.
+For Eurotransplant in COLD (donor) thoracic reports">
+			use = <"Use to register MAP (mean arterial blood pressure) in Haemodynamics measurement context, as part of the openEHR-EHR-CLUSTER.echo_cardiography.v0">
+			misuse = <"Not to be used for intravenous pressure.
+Use CLUSTER.intravascular_pressure and related specialisations in both of these situations.">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"D72C24D98B17D97EF8D9DF350B34A78B">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Blood pressure
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Systolic
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::125]>
+						list = <
+							["1"] = <
+								units = <"mm[Hg]">
+								magnitude = <|0.0..500.0|>
+								precision = <|0|>
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {	-- Diastolic
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::125]>
+						list = <
+							["1"] = <
+								units = <"mm[Hg]">
+								magnitude = <|0.0..500.0|>
+								precision = <|0|>
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {	-- Mean arterial pressure
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::125]>
+						list = <
+							["1"] = <
+								units = <"mm[Hg]">
+								magnitude = <|0.0..500.0|>
+								precision = <|0|>
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {	-- Pulse pressure
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::125]>
+						list = <
+							["1"] = <
+								units = <"mm[Hg]">
+								magnitude = <|0.0..500.0|>
+								precision = <|0|>
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {	-- Comment
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	terminologies_available = <"SNOMED-CT", ...>
+	term_definitions = <
+		["nl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Blood pressure">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Systolic">
+					description = <"*">
+				>
+				["at0002"] = <
+					text = <"Diastolic">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Mean arterial pressure">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Pulse pressure">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Comment">
+					description = <"*">
+				>
+			>
+		>
+	>
+	term_bindings = <
+		["SNOMED-CT"] = <
+			items = <
+				["at0000"] = <[SNOMED-CT::75367002]>
+				["at0001"] = <[SNOMED-CT::271649006]>
+				["at0002"] = <[SNOMED-CT::271650006]>
+				["at0003"] = <[SNOMED-CT::251074006]>
+				["at0004"] = <[SNOMED-CT::87179004]>
+			>
+		>
+	>

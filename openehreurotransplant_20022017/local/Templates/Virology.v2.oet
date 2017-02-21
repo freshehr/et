@@ -1,0 +1,312 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>329dc758-c3ae-45f4-8440-f3311a571c0a</id>
+  <name>Virology.v2</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use>To register Virology information</use>
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.report.v1" concept_name="Report">
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0" concept_name="Laboratory test" max="1" path="/content">
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0073]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0075]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0077]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0100]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]" max="0" />
+      <Rule path="/protocol[at0004]/items[at0094]" max="0" />
+      <Rule path="/protocol[at0004]/items[at0111]" max="0" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.specimen.v0" concept_name="Specimen" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0065]">
+        <Rule path="/items[at0029]" max="0" />
+        <Rule path="/items[at0008]" max="0" />
+        <Rule path="/items[at0007]" max="0" />
+        <Rule path="/items[at0079]" max="0" />
+        <Rule path="/items[at0005]" max="0" />
+        <Rule path="/items[at0067]" max="0" />
+        <Rule path="/items[at0070]" max="0" />
+        <Rule path="/items[at0080]" max="0" />
+        <Rule path="/items[at0039]" max="0" />
+        <Rule path="/items[at0046]/items[at0034]" max="0" />
+        <Rule path="/items[at0081]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel_et-hiv_ab.v0" concept_name="HIV Ab" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002.1]/items[at0003]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0004]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0005]">
+          <constraint xsi:type="textConstraint">
+            <excludedValues>local::at0007</excludedValues>
+            <excludedValues>local::at0008</excludedValues>
+            <excludedValues>local::at0009</excludedValues>
+            <excludedValues>local::at0010</excludedValues>
+            <excludedValues>local::at0011</excludedValues>
+          </constraint>
+        </Rule>
+        <Rule path="/items[at0002.1]/items[at0006]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel_et-hiv_ag.v0" concept_name="HIV Ag" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002.1]/items[at0003]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0004]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0005]">
+          <constraint xsi:type="textConstraint">
+            <excludedValues>local::at0007</excludedValues>
+            <excludedValues>local::at0008</excludedValues>
+            <excludedValues>local::at0009</excludedValues>
+            <excludedValues>local::at0010</excludedValues>
+            <excludedValues>local::at0011</excludedValues>
+          </constraint>
+        </Rule>
+        <Rule path="/items[at0002.1]/items[at0006]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel_et-hbs_ag.v0" concept_name="HBs Ag" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002.1]/items[at0003]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0004]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0005]">
+          <constraint xsi:type="textConstraint">
+            <excludedValues>local::at0007</excludedValues>
+            <excludedValues>local::at0008</excludedValues>
+            <excludedValues>local::at0009</excludedValues>
+            <excludedValues>local::at0010</excludedValues>
+            <excludedValues>local::at0011</excludedValues>
+          </constraint>
+        </Rule>
+        <Rule path="/items[at0002.1]/items[at0006]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel_et-hbs_ab.v0" concept_name="HBs Ab" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002.1]/items[at0003]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0004]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0005]">
+          <constraint xsi:type="textConstraint">
+            <excludedValues>local::at0007</excludedValues>
+            <excludedValues>local::at0008</excludedValues>
+            <excludedValues>local::at0009</excludedValues>
+            <excludedValues>local::at0010</excludedValues>
+            <excludedValues>local::at0011</excludedValues>
+          </constraint>
+        </Rule>
+        <Rule path="/items[at0002.1]/items[at0006]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel_et-hbc_ab.v0" concept_name="HBc Ab" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002.1]/items[at0003]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0004]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0005]">
+          <constraint xsi:type="textConstraint">
+            <excludedValues>local::at0007</excludedValues>
+            <excludedValues>local::at0008</excludedValues>
+            <excludedValues>local::at0009</excludedValues>
+            <excludedValues>local::at0010</excludedValues>
+            <excludedValues>local::at0011</excludedValues>
+          </constraint>
+        </Rule>
+        <Rule path="/items[at0002.1]/items[at0006]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel_et-hcv_ab.v0" concept_name="HCV Ab" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002.1]/items[at0003]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0004]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0005]">
+          <constraint xsi:type="textConstraint">
+            <excludedValues>local::at0007</excludedValues>
+            <excludedValues>local::at0008</excludedValues>
+            <excludedValues>local::at0009</excludedValues>
+            <excludedValues>local::at0010</excludedValues>
+            <excludedValues>local::at0011</excludedValues>
+          </constraint>
+        </Rule>
+        <Rule path="/items[at0002.1]/items[at0006]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel_et-cmv_igg.v0" concept_name="CMV IgG" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002.1]/items[at0003]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0004]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0005]">
+          <constraint xsi:type="textConstraint">
+            <excludedValues>local::at0007</excludedValues>
+            <excludedValues>local::at0008</excludedValues>
+            <excludedValues>local::at0009</excludedValues>
+            <excludedValues>local::at0010</excludedValues>
+            <excludedValues>local::at0011</excludedValues>
+          </constraint>
+        </Rule>
+        <Rule path="/items[at0002.1]/items[at0006]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel_et-cmv_igm.v0" concept_name="CMV IgM" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002.1]/items[at0003]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0004]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0005]">
+          <constraint xsi:type="textConstraint">
+            <excludedValues>local::at0007</excludedValues>
+            <excludedValues>local::at0008</excludedValues>
+            <excludedValues>local::at0009</excludedValues>
+            <excludedValues>local::at0010</excludedValues>
+            <excludedValues>local::at0011</excludedValues>
+          </constraint>
+        </Rule>
+        <Rule path="/items[at0002.1]/items[at0006]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel_et-ebv_igg.v0" concept_name="EBV IgG" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002.1]/items[at0003]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0004]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0005]">
+          <constraint xsi:type="textConstraint">
+            <excludedValues>local::at0007</excludedValues>
+            <excludedValues>local::at0008</excludedValues>
+            <excludedValues>local::at0009</excludedValues>
+            <excludedValues>local::at0010</excludedValues>
+            <excludedValues>local::at0011</excludedValues>
+          </constraint>
+        </Rule>
+        <Rule path="/items[at0002.1]/items[at0006]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel_et-toxoplasmosis.v0" concept_name="Toxoplasmosis" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002.1]/items[at0003]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0004]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0005]">
+          <constraint xsi:type="textConstraint">
+            <excludedValues>local::at0007</excludedValues>
+            <excludedValues>local::at0008</excludedValues>
+            <excludedValues>local::at0009</excludedValues>
+            <excludedValues>local::at0010</excludedValues>
+            <excludedValues>local::at0011</excludedValues>
+          </constraint>
+        </Rule>
+        <Rule path="/items[at0002.1]/items[at0006]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel_et-lues.v0" concept_name="Lues" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002.1]/items[at0003]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0004]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0005]">
+          <constraint xsi:type="textConstraint">
+            <excludedValues>local::at0007</excludedValues>
+            <excludedValues>local::at0008</excludedValues>
+            <excludedValues>local::at0009</excludedValues>
+            <excludedValues>local::at0010</excludedValues>
+            <excludedValues>local::at0011</excludedValues>
+          </constraint>
+        </Rule>
+        <Rule path="/items[at0002.1]/items[at0006]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel_et-hbe_ag.v0" concept_name="HBe Ag" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+    </Content>
+    <Content xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.immunisation_summary-et.v1" concept_name="Immunisation Summary ET" max="1" path="/content">
+      <Rule path="/data[at0001]/items[at0019]" max="0" />
+      <Rule path="/data[at0001]/items[at0025]" max="0" />
+      <Rule path="/data[at0001]/items[at0016]/items[at0010]" max="0" />
+      <Rule path="/data[at0001]/items[at0016]/items[at0003]">
+        <constraint xsi:type="textConstraint">
+          <excludedValues>local::at0005</excludedValues>
+          <excludedValues>local::at0006</excludedValues>
+          <excludedValues>local::at0007</excludedValues>
+        </constraint>
+      </Rule>
+      <Rule path="/data[at0001]/items[at0016]/items[at0008]" max="0" />
+      <Rule path="/data[at0001]/items[at0016]/items[at0009]" max="0" />
+      <Rule path="/data[at0001]/items[at0016]/items[at0020]" max="0" />
+      <Rule path="/data[at0001]/items[at0016]/items[at0024]" max="0" />
+      <Rule path="/protocol[at0013]/items[at0014]" max="0" />
+      <Rule path="/protocol[at0013]/items[at0015]" max="0" />
+    </Content>
+    <Context />
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.report.v1">
+    <digest id="MD5-CAM-1.0.1">FD053BE0456D849CACD864F274EED32E</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0">
+    <digest id="MD5-CAM-1.0.1">64F4898018F4D87C7D8ADAF36558AAF7</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.specimen.v0">
+    <digest id="MD5-CAM-1.0.1">328C511116FD83D7F25973284D8D9F60</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel_et-hiv_ab.v0">
+    <digest id="MD5-CAM-1.0.1">B84AB5D1449167F5B6C8141231C97310</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel_et-hiv_ag.v0">
+    <digest id="MD5-CAM-1.0.1">BEAC0D888A879B18562034A864F4E6AB</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel_et-hbs_ag.v0">
+    <digest id="MD5-CAM-1.0.1">3E964ABC2210E9D5AE42D277ED56FF48</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel_et-hbs_ab.v0">
+    <digest id="MD5-CAM-1.0.1">BC1A02E4A794659002C0CCB8DEFB95C4</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel_et-hbc_ab.v0">
+    <digest id="MD5-CAM-1.0.1">CB4E0D75D7CF24DDBAE6BD645E5E515E</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel_et-hcv_ab.v0">
+    <digest id="MD5-CAM-1.0.1">693C4E26D70A36C2717F68E55EA7F300</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel_et-cmv_igg.v0">
+    <digest id="MD5-CAM-1.0.1">C44714FDC9C6CC2887448D3DFD274A06</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel_et-cmv_igm.v0">
+    <digest id="MD5-CAM-1.0.1">F8B1C8445BFFB693DD2C3B2FE9319C63</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel_et-ebv_igg.v0">
+    <digest id="MD5-CAM-1.0.1">59A12F678EB33F4C18BC94FF98FF651D</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel_et-toxoplasmosis.v0">
+    <digest id="MD5-CAM-1.0.1">A29227D2B7F4737E109B1FAC9F0173C3</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel_et-lues.v0">
+    <digest id="MD5-CAM-1.0.1">9B7008C78A0ACF54B96627ED5E2B1C39</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel_et-hbe_ag.v0">
+    <digest id="MD5-CAM-1.0.1">A44AE9E43E033DF49984AEC1E96E6C40</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.immunisation_summary-et.v1">
+    <digest id="MD5-CAM-1.0.1">AECE474B0FB1CC9394A01A3068955AB3</digest>
+  </integrity_checks>
+</template>
