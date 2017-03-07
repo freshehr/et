@@ -31,7 +31,7 @@ openEHR-EHR-CLUSTER.exam_liver.v0.adl">
 	other_contributors = <>
 	other_details = <
 		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
-		["MD5-CAM-1.0.1"] = <"78E22A019980F321E96987111C005A55">
+		["MD5-CAM-1.0.1"] = <"E06A2AFF943069829F0222185931105A">
 	>
 
 definition
@@ -65,6 +65,10 @@ definition
 							at0009]	-- Unspecified
 						}
 					}
+				}
+			}
+			ELEMENT[at0026] occurrences matches {0..1} matches {	-- Remarks
+				value matches {
 					DV_TEXT matches {*}
 				}
 			}
@@ -144,6 +148,10 @@ ontology
 				["at0025"] = <
 					text = <"Location">
 					description = <"Location of space occupying lesion.">
+				>
+				["at0026"] = <
+					text = <"Remarks">
+					description = <"Additional information about the space occupying lesion.">
 				>
 			>
 		>
