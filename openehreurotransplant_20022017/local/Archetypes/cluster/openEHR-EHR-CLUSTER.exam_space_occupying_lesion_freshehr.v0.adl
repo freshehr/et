@@ -31,12 +31,12 @@ openEHR-EHR-CLUSTER.exam_liver.v0.adl">
 	other_contributors = <>
 	other_details = <
 		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
-		["MD5-CAM-1.0.1"] = <"E06A2AFF943069829F0222185931105A">
+		["MD5-CAM-1.0.1"] = <"B1A15D8DF2ED65ACEEFBF4F4D50DDE3C">
 	>
 
 definition
 	CLUSTER[at0000] matches {	-- Space occupying lesion freshEHR
-		items cardinality matches {1; unordered} matches {
+		items cardinality matches {1..*; unordered} matches {
 			ELEMENT[at0012] occurrences matches {0..1} matches {	-- Description
 				value matches {
 					DV_CODED_TEXT matches {

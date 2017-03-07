@@ -111,7 +111,7 @@
     <digest id="MD5-CAM-1.0.1">CBD362255496A3FD6BB34C17B6FBD1E6</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.exam_space_occupying_lesion_freshehr.v0">
-    <digest id="MD5-CAM-1.0.1">E06A2AFF943069829F0222185931105A</digest>
+    <digest id="MD5-CAM-1.0.1">B1A15D8DF2ED65ACEEFBF4F4D50DDE3C</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.exam_pancreas_freshehr.v0">
     <digest id="MD5-CAM-1.0.1">A02C5571F65555F6975B4C61972FE992</digest>
