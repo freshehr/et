@@ -1,0 +1,325 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.exam_liver.v0
+
+concept
+	[at0000]	-- Exam liver
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Bert Verhees">
+		["email"] = <"bert.verhees@rosa.nl">
+		["organisation"] = <"ROSA Software">
+		["date"] = <"2017-03-09">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To report the investigation of the Liver.
+The archetype has following entries:
+Parenchyma -> parenchyma: clinical information
+Parenchyma -> parenchyma: status: not investigated. This item is a list of values (codedText) with only one entry to indicate if the parenchyma is not investigated
+
+Liver edge -> Liver edge : clinical information about liver abnormalities
+Liver edge -> Liver edge : status: not investigated. This item is a list of values (codedText) with only one entry to indicate if the liver edge is not investigated
+
+Intrahepatic bile duct -> Intrahepatic bile duct : clinical information about Intrahepatic bile ducts
+Intrahepatic bile duct -> Intrahepatic bile duct : status: not investigated. This item is a list of values (codedText) with only one entry to indicate if the Intrahepatic bile duct is not investigated
+
+Portal vein -> Portal vein : clinical information about Portal vein
+Portal vein -> Portal vein : status: not investigated. This item is a list of values (codedText) with only one entry to indicate if the Portal vein is not investigated
+
+Space Occupying Lesion is a cluster, it has two items, one is the location of the space occupying lesion and the other holds information about space occupying lesions, it is an archetypeslot.
+The cluster has occurences unbounded, there can be more of them, and every lesion inside the cluster consists (thus) of a location (liver related) and the archetypeslot. Both have occurrences of 0..1 (optional)">
+			use = <"Parenchyma -> parenchyma: status: not investigated
+If this item is used (it is optional), the Parenchyma -> parenchyma: clinical information must be ignored
+
+Liver edge -> Liver edge : status: not investigated
+If this item is used (it is optional), the Liver edge -> Liver edge: clinical information must be ignored
+
+Intrahepatic bile duct -> Intrahepatic bile duct : status: not investigated
+If this item is used (it is optional), the Intrahepatic bile duct -> Intrahepatic bile duct: clinical information must be ignored
+
+Portal vein -> Portal vein : status: not investigated
+If this item is used (it is optional), the Portal vein -> Portal vein: clinical information must be ignored">
+			misuse = <"Parenchyma -> parenchyma: status: not investigated
+Do not use this item (it is optional) if parencyma information is to be stored.
+
+Liver edge -> Liver edge : status: not investigated
+Do not use this item (it is optional) if Liver edge information is to be stored.
+
+Intrahepatic bile duct -> Intrahepatic bile duct : status: not investigated
+Do not use this item (it is optional) if Intrahepatic bile duct information is to be stored.
+
+Portal vein -> Portal vein : status: not investigated
+Do not use this item (it is optional) if Portal vein information is to be stored.">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["current_contact"] = <"Bert Verhees, ROSA Software<bert.verhees@rosa.nl>">
+		["MD5-CAM-1.0.1"] = <"D72EC28E955AD5596366567AF8F2660F">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Exam liver
+		items cardinality matches {1..*; unordered} matches {
+			CLUSTER[at0002] occurrences matches {0..1} matches {	-- Size
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0043] occurrences matches {0..1} matches {	-- Size (in relation to MCL)
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0074, 	-- Normal
+									at0075, 	-- Small
+									at0076, 	-- Large
+									at0077, 	-- Enlarged
+									at0090, 	-- Not assessable
+									at0116]	-- Not investigated
+								}
+							}
+						}
+					}
+					ELEMENT[at0001] occurrences matches {0..1} matches {	-- Size (MCL measured)
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::122]>
+								list = <
+									["1"] = <
+										units = <"cm">
+									>
+								>
+							>
+						}
+					}
+				}
+			}
+			CLUSTER[at0033] occurrences matches {0..*} matches {	-- Space Occupying Lesion
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0094] occurrences matches {0..1} matches {	-- Location of Space Occupying Lesion
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0039] occurrences matches {0..1} matches {	-- Space Occupying Lesion
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.exam_space_occupying_lesion(-[a-zA-Z0-9_]+)*\.v0/}
+					}
+				}
+			}
+			ELEMENT[at0046] occurrences matches {0..1} matches {	-- Parenchyma
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0064, 	-- Normal
+							at0065, 	-- Slightly Hyperechogenous (borderline steatosis)
+							at0066, 	-- Severly hyperechogenous (remarkable steatosis)
+							at0067, 	-- Cirrhosis
+							at0098, 	-- Not assessable
+							at0117]	-- Not investigated
+						}
+					}
+				}
+			}
+			ELEMENT[at0049] occurrences matches {0..1} matches {	-- Liver edge
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0070, 	-- Sharp
+							at0071, 	-- Blunt
+							at0099, 	-- Not assessable
+							at0118]	-- Not investigated
+						}
+					}
+				}
+			}
+			ELEMENT[at0052] occurrences matches {0..1} matches {	-- Intrahepatic bile duct
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0080, 	-- Normal
+							at0081, 	-- Dilated
+							at0100, 	-- Not assessable
+							at0119]	-- Not investigated
+						}
+					}
+				}
+			}
+			ELEMENT[at0055] occurrences matches {0..1} matches {	-- Portal Vein
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0084, 	-- Open
+							at0085, 	-- Thrombosis or obstructed for other reasons
+							at0095, 	-- Not assessable
+							at0120]	-- Not investigated
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	terminologies_available = <"SNOMED-CT", ...>
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Exam liver">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Size (MCL measured)">
+					description = <"*">
+				>
+				["at0002"] = <
+					text = <"Size">
+					description = <"*">
+				>
+				["at0033"] = <
+					text = <"Space Occupying Lesion">
+					description = <"*">
+				>
+				["at0039"] = <
+					text = <"Space Occupying Lesion">
+					description = <"*">
+				>
+				["at0043"] = <
+					text = <"Size (in relation to MCL)">
+					description = <"*">
+				>
+				["at0046"] = <
+					text = <"Parenchyma">
+					description = <"*">
+				>
+				["at0049"] = <
+					text = <"Liver edge">
+					description = <"*">
+				>
+				["at0052"] = <
+					text = <"Intrahepatic bile duct">
+					description = <"*">
+				>
+				["at0055"] = <
+					text = <"Portal Vein">
+					description = <"*">
+				>
+				["at0064"] = <
+					text = <"Normal">
+					description = <"*">
+				>
+				["at0065"] = <
+					text = <"Slightly Hyperechogenous (borderline steatosis)">
+					description = <"*">
+				>
+				["at0066"] = <
+					text = <"Severly hyperechogenous (remarkable steatosis)">
+					description = <"*">
+				>
+				["at0067"] = <
+					text = <"Cirrhosis">
+					description = <"*">
+				>
+				["at0070"] = <
+					text = <"Sharp">
+					description = <"*">
+				>
+				["at0071"] = <
+					text = <"Blunt">
+					description = <"*">
+				>
+				["at0074"] = <
+					text = <"Normal">
+					description = <"*">
+				>
+				["at0075"] = <
+					text = <"Small">
+					description = <"*">
+				>
+				["at0076"] = <
+					text = <"Large">
+					description = <"*">
+				>
+				["at0077"] = <
+					text = <"Enlarged">
+					description = <"*">
+				>
+				["at0080"] = <
+					text = <"Normal">
+					description = <"*">
+				>
+				["at0081"] = <
+					text = <"Dilated">
+					description = <"*">
+				>
+				["at0084"] = <
+					text = <"Open">
+					description = <"*">
+				>
+				["at0085"] = <
+					text = <"Thrombosis or obstructed for other reasons">
+					description = <"*">
+				>
+				["at0090"] = <
+					text = <"Not assessable">
+					description = <"Size (in relation to MCL) is investigated bit not assessable">
+				>
+				["at0094"] = <
+					text = <"Location of Space Occupying Lesion">
+					description = <"Number or Segments">
+				>
+				["at0095"] = <
+					text = <"Not assessable">
+					description = <"Portal Vein is investigated but not assessable">
+				>
+				["at0098"] = <
+					text = <"Not assessable">
+					description = <"Parenchyma is investigated but not assessable">
+				>
+				["at0099"] = <
+					text = <"Not assessable">
+					description = <"Liver edge is investigated but not assessable">
+				>
+				["at0100"] = <
+					text = <"Not assessable">
+					description = <"Intrahepatic bile duct is investigated but not assessable">
+				>
+				["at0116"] = <
+					text = <"Not investigated">
+					description = <"*">
+				>
+				["at0117"] = <
+					text = <"Not investigated">
+					description = <"*">
+				>
+				["at0118"] = <
+					text = <"Not investigated">
+					description = <"*">
+				>
+				["at0119"] = <
+					text = <"Not investigated">
+					description = <"*">
+				>
+				["at0120"] = <
+					text = <"Not investigated">
+					description = <"*">
+				>
+			>
+		>
+	>
+	term_bindings = <
+		["SNOMED-CT"] = <
+			items = <
+				["at0001"] = <[SNOMED-CT::249566006]>
+				["at0033"] = <[SNOMED-CT::302285008]>
+			>
+		>
+	>

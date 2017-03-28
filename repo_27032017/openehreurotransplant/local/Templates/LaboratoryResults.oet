@@ -1,0 +1,315 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>298f24fe-14b6-4ab8-8fd1-3c807a850c07</id>
+  <name>LaboratoryResults</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.report-result.v1" concept_name="Result Report" name="Clinical Donor Laboratory Results">
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0" concept_name="Laboratory test" path="/content">
+      <Rule path="/protocol[at0004]/items[at0068]" max="0" />
+      <Rule path="/protocol[at0004]/items[at0094]" max="0" />
+      <Rule path="/protocol[at0004]/items[at0111]" max="0" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-afp.v0" concept_name="Alpha-Fetoprotein in serum" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-albumin.v0" concept_name="Serum Albumin level" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-amylase.v0" concept_name=" Amylase test result" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-aptt.v0" concept_name="APTT (Activated PT)" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-at_iii.v0" concept_name="AT III" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-bilirubine_direct.v0" concept_name="Bilirubine, Direct, test" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-bilirubine_total.v0" concept_name="Bilirubine, Total, test result" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-calcium.v0" concept_name="Calcium (Ca2+) test result" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-che.v0" concept_name="Serum Cholinesterase of the blood test result" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-chloride.v0" concept_name="Chloride (Cl-) test result" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-ck.v0" concept_name="CK test result" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-ck_mb.v0" concept_name="CK-MB test result" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-creatinine.v0" concept_name="Creatinine" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002.1]/items[at0001.1]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0005.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-creatinine_clearance.v0" concept_name="Creatinine clearance" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002.1]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-crp.v0" concept_name="CRP (C-reactive Protein) test result" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-ferritin.v0" concept_name="Serum Ferritin of the blood test result" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-fibrinogen.v0" concept_name="Fibrinogen test result" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-gamma_gt.v0" concept_name="Gamma-GT (gGT) test result" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-glucose.v0" concept_name="Glucose" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002.1]/items[at0003]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0004]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-hba1c.v0" concept_name="HbA1c test result" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-hematocrit.v0" concept_name="Hematocrit test result" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-hemoglobin.v0" concept_name="Hemoglobin test result" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-inr.v0" concept_name="INR test result" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-ldh.v0" concept_name="LDH test result" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-leucocytes.v0" concept_name=" Leukocytes [#/​volume] in Blood" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-lipase.v0" concept_name="Lipase test result" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-potassium.v0" concept_name="Potassium (K+) test result" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-protein_total.v0" concept_name="Protein, Total test result" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-pt.v0" concept_name="PT (Partial Thromboplastin) test result" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-quick.v0" concept_name="Quick test result" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-red_blood_cell_count.v0" concept_name="Red Blood cell count result" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-sgot.v0" concept_name="SGOT (ASAT) test result" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-sgpt.v0" concept_name="SGPT (ALAT) test result" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-sodium.v0" concept_name="Sodium (NA+) test result" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-thrombocytes.v0" concept_name="Thrombocytes concentration" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003]" max="0" />
+        <Rule path="/items[at0002]/items[at0004]" max="0" />
+        <Rule path="/items[at0002]/items[at0005]" max="0" />
+        <Rule path="/items[at0002]/items[at0006]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-troponine.v0" concept_name="Troponine test result" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002.1]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002.1]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-troponine_i.v0" concept_name="Troponine I test result" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-troponine_t.v0" concept_name="Troponine T test result" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-urea.v0" concept_name="Urea (Harnstof) test result" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0003.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0004.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0005.1]" max="0" />
+        <Rule path="/items[at0002]/items[at0006.1]" max="0" />
+      </Items>
+    </Content>
+    <Context>
+      <Rule path="/context/other_context[at0001]/items[at0002]" max="0" />
+      <Rule path="/context/other_context[at0001]/items[at0005]" max="0" />
+    </Context>
+  </definition>
+  <view>
+    <constraints path="[openEHR-EHR-COMPOSITION.report-result.v1]/content[openEHR-EHR-OBSERVATION.laboratory_test.v0]/provider">
+      <items id="VisibleInView">
+        <value>Examiner</value>
+      </items>
+    </constraints>
+  </view>
+</template>

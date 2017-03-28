@@ -1,0 +1,558 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.immunological_screening.v0
+
+concept
+	[at0000]	-- Immunological_screening
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"1F97A1F1B2ABAA4CDA368351D505E29C">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Immunological_screening
+		items cardinality matches {1..*; unordered} matches {
+			CLUSTER[at0003] occurrences matches {0..1} matches {	-- Screening
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0081] occurrences matches {0..1} matches {	-- Screening Date
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- Technique
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0005, 	-- Luminex
+									at0006, 	-- Elisa
+									at0007, 	-- DTT
+									at0008, 	-- CDC
+									at0009]	-- Other
+								}
+							}
+						}
+					}
+					CLUSTER[at0020] occurrences matches {0..*} matches {	-- Antibodies
+						items cardinality matches {3..*; unordered} matches {
+							ELEMENT[at0021] matches {	-- Locus
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0072, 	-- HLA-A
+											at0073, 	-- HLA-B
+											at0074, 	-- HLA-C
+											at0075, 	-- HLA-DR
+											at0076, 	-- HLA-DQA
+											at0077, 	-- HLA-DQB
+											at0078, 	-- HLA-DPA
+											at0079]	-- HLA-DPB
+										}
+									}
+								}
+							}
+							ELEMENT[at0069] matches {	-- Method
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0070, 	-- DNA
+											at0071]	-- Serology
+										}
+									}
+								}
+							}
+							ELEMENT[at0080] matches {	-- Type
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					ELEMENT[at0050] occurrences matches {0..1} matches {	-- PRA
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::380]>
+								list = <
+									["1"] = <
+										units = <"%">
+										magnitude = <|0.0..100.0|>
+										precision = <|0|>
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0031] occurrences matches {0..1} matches {	-- Auto antibodies detected
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0032, 	-- Yes
+									at0033, 	-- No
+									at0068]	-- Not Tested
+								}
+							}
+						}
+					}
+					ELEMENT[at0035] occurrences matches {0..1} matches {	-- Non cytotoxic/complement fixing antibodies detected
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0036, 	-- Yes
+									at0037, 	-- No
+									at0067]	-- Not Tested
+								}
+							}
+						}
+					}
+				}
+			}
+			CLUSTER[at0112] occurrences matches {0..*} matches {	-- Cumulative Antibodies
+				items cardinality matches {2..*; unordered} matches {
+					ELEMENT[at0113] matches {	-- Locus
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0115, 	-- HLA-A
+									at0116, 	-- HLA-B
+									at0117, 	-- HLA-C
+									at0118, 	-- HLA-DR
+									at0119, 	-- HLA-DQA
+									at0120, 	-- HLA-DQB
+									at0121, 	-- HLA-DPA
+									at0122]	-- HLA-DPB
+								}
+							}
+						}
+					}
+					ELEMENT[at0114] matches {	-- Type
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0084] occurrences matches {0..*} matches {	-- Unacceptable antigens
+				items cardinality matches {3..*; unordered} matches {
+					ELEMENT[at0087] matches {	-- Locus
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0092, 	-- HLA-A
+									at0093, 	-- HLA-B
+									at0094, 	-- HLA-C
+									at0095, 	-- HLA-DR
+									at0096, 	-- HLA-DQA
+									at0097, 	-- HLA-DQB
+									at0098, 	-- HLA-DPA
+									at0099]	-- HLA-DPB
+								}
+							}
+						}
+					}
+					ELEMENT[at0088] matches {	-- Type
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0108] matches {	-- Interpretation
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0109, 	-- Unacceptable
+									at0110; 	-- Risk antigen
+									at0109]	-- assumed value
+								}
+							}
+						}
+					}
+				}
+			}
+			CLUSTER[at0085] occurrences matches {0..*} matches {	-- Acceptable antigens
+				items cardinality matches {2..*; unordered} matches {
+					ELEMENT[at0091] matches {	-- Locus
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0100, 	-- HLA-A
+									at0101, 	-- HLA-B
+									at0102, 	-- HLA-C
+									at0103, 	-- HLA-DR
+									at0104, 	-- HLA-DQA
+									at0105, 	-- HLA-DQB
+									at0106, 	-- HLA-DPA
+									at0107]	-- HLA-DPB
+								}
+							}
+						}
+					}
+					ELEMENT[at0090] matches {	-- Type
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0054] occurrences matches {0..*} matches {	-- Donor frequency
+				items cardinality matches {2..*; unordered} matches {
+					ELEMENT[at0056] matches {	-- Type
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0086, 	-- cPRA
+									at0057, 	-- Kidney
+									at0058]	-- Heart
+								}
+							}
+						}
+					}
+					ELEMENT[at0055] matches {	-- Frequency
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::380]>
+								list = <
+									["1"] = <
+										units = <"1">
+										magnitude = <|0.0..1.0|>
+										precision = <|3|>
+									>
+									["2"] = <
+										units = <"%">
+										magnitude = <|0.0..100.0|>
+										precision = <|3|>
+									>
+								>
+							>
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Immunological_screening">
+					description = <"unknown">
+				>
+				["at0003"] = <
+					text = <"Screening">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Technique">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Luminex">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Elisa">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"DTT">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"CDC">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Other">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Antibodies">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Locus">
+					description = <"Locus (ex: \"HLA-A\", \"HLA-DRB1\") ">
+				>
+				["at0031"] = <
+					text = <"Auto antibodies detected">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Yes">
+					description = <"Auto antibodies detected">
+				>
+				["at0033"] = <
+					text = <"No">
+					description = <"No Auto antibodies detected">
+				>
+				["at0035"] = <
+					text = <"Non cytotoxic/complement fixing antibodies detected">
+					description = <"*">
+				>
+				["at0036"] = <
+					text = <"Yes">
+					description = <"*">
+				>
+				["at0037"] = <
+					text = <"No">
+					description = <"*">
+				>
+				["at0050"] = <
+					text = <"PRA">
+					description = <"*">
+				>
+				["at0054"] = <
+					text = <"Donor frequency">
+					description = <"*">
+				>
+				["at0055"] = <
+					text = <"Frequency">
+					description = <"*">
+				>
+				["at0056"] = <
+					text = <"Type">
+					description = <"*">
+				>
+				["at0057"] = <
+					text = <"Kidney">
+					description = <"Donor frequency kidney">
+				>
+				["at0058"] = <
+					text = <"Heart">
+					description = <"Donor frequency Heart">
+				>
+				["at0067"] = <
+					text = <"Not Tested">
+					description = <"*">
+				>
+				["at0068"] = <
+					text = <"Not Tested">
+					description = <"*">
+				>
+				["at0069"] = <
+					text = <"Method">
+					description = <"Typing method used e.g. DNA or Serology">
+				>
+				["at0070"] = <
+					text = <"DNA">
+					description = <"*">
+				>
+				["at0071"] = <
+					text = <"Serology">
+					description = <"*">
+				>
+				["at0072"] = <
+					text = <"HLA-A">
+					description = <"HLA-A">
+				>
+				["at0073"] = <
+					text = <"HLA-B">
+					description = <"HLA-B">
+				>
+				["at0074"] = <
+					text = <"HLA-C">
+					description = <"HLA-C">
+				>
+				["at0075"] = <
+					text = <"HLA-DR">
+					description = <"HLA-DR">
+				>
+				["at0076"] = <
+					text = <"HLA-DQA">
+					description = <"HLA-DQA">
+				>
+				["at0077"] = <
+					text = <"HLA-DQB">
+					description = <"HLA-DQB">
+				>
+				["at0078"] = <
+					text = <"HLA-DPA">
+					description = <"HLA-DPA">
+				>
+				["at0079"] = <
+					text = <"HLA-DPB">
+					description = <"HLA-DPB">
+				>
+				["at0080"] = <
+					text = <"Type">
+					description = <"Allele/code level type (ex: \"01:01\", \"01:AB\")">
+				>
+				["at0081"] = <
+					text = <"Screening Date">
+					description = <"*">
+				>
+				["at0084"] = <
+					text = <"Unacceptable antigens">
+					description = <"*">
+				>
+				["at0085"] = <
+					text = <"Acceptable antigens">
+					description = <"*">
+				>
+				["at0086"] = <
+					text = <"cPRA">
+					description = <"Calculated PRA">
+				>
+				["at0087"] = <
+					text = <"Locus">
+					description = <"Locus (ex: \"HLA-A\", \"HLA-DRB1\") ">
+				>
+				["at0088"] = <
+					text = <"Type">
+					description = <"Allele/code level type (ex: \"01:01\", \"01:AB\")">
+				>
+				["at0090"] = <
+					text = <"Type">
+					description = <"Allele/code level type (ex: \"01:01\", \"01:AB\")">
+				>
+				["at0091"] = <
+					text = <"Locus">
+					description = <"Locus (ex: \"HLA-A\", \"HLA-DRB1\")">
+				>
+				["at0092"] = <
+					text = <"HLA-A">
+					description = <"HLA-A">
+				>
+				["at0093"] = <
+					text = <"HLA-B">
+					description = <"HLA-B">
+				>
+				["at0094"] = <
+					text = <"HLA-C">
+					description = <"HLA-C">
+				>
+				["at0095"] = <
+					text = <"HLA-DR">
+					description = <"HLA-DR">
+				>
+				["at0096"] = <
+					text = <"HLA-DQA">
+					description = <"HLA-DQA">
+				>
+				["at0097"] = <
+					text = <"HLA-DQB">
+					description = <"HLA-DQB">
+				>
+				["at0098"] = <
+					text = <"HLA-DPA">
+					description = <"HLA-DPA">
+				>
+				["at0099"] = <
+					text = <"HLA-DPB">
+					description = <"HLA-DPB">
+				>
+				["at0100"] = <
+					text = <"HLA-A">
+					description = <"HLA-A">
+				>
+				["at0101"] = <
+					text = <"HLA-B">
+					description = <"HLA-B">
+				>
+				["at0102"] = <
+					text = <"HLA-C">
+					description = <"HLA-C">
+				>
+				["at0103"] = <
+					text = <"HLA-DR">
+					description = <"HLA-DR">
+				>
+				["at0104"] = <
+					text = <"HLA-DQA">
+					description = <"HLA-DQA">
+				>
+				["at0105"] = <
+					text = <"HLA-DQB">
+					description = <"HLA-DQB">
+				>
+				["at0106"] = <
+					text = <"HLA-DPA">
+					description = <"HLA-DPA">
+				>
+				["at0107"] = <
+					text = <"HLA-DPB">
+					description = <"HLA-DPB">
+				>
+				["at0108"] = <
+					text = <"Interpretation">
+					description = <"Interpretation of the repeated mismatches. To enable removing some antigens from the set of unacceptable antigens but still marking them as risk for evaluation during cross-matching or after transplantation">
+				>
+				["at0109"] = <
+					text = <"Unacceptable">
+					description = <"Unacceptable">
+				>
+				["at0110"] = <
+					text = <"Risk antigen">
+					description = <"Risk antigen">
+				>
+				["at0112"] = <
+					text = <"Cumulative Antibodies">
+					description = <"*">
+				>
+				["at0113"] = <
+					text = <"Locus">
+					description = <"Locus (ex: \"HLA-A\", \"HLA-DRB1\") ">
+				>
+				["at0114"] = <
+					text = <"Type">
+					description = <"Allele/code level type (ex: \"01:01\", \"01:AB\")">
+				>
+				["at0115"] = <
+					text = <"HLA-A">
+					description = <"HLA-A">
+				>
+				["at0116"] = <
+					text = <"HLA-B">
+					description = <"HLA-B">
+				>
+				["at0117"] = <
+					text = <"HLA-C">
+					description = <"HLA-C">
+				>
+				["at0118"] = <
+					text = <"HLA-DR">
+					description = <"HLA-DR">
+				>
+				["at0119"] = <
+					text = <"HLA-DQA">
+					description = <"HLA-DQA">
+				>
+				["at0120"] = <
+					text = <"HLA-DQB">
+					description = <"HLA-DQB">
+				>
+				["at0121"] = <
+					text = <"HLA-DPA">
+					description = <"HLA-DPA">
+				>
+				["at0122"] = <
+					text = <"HLA-DPB">
+					description = <"HLA-DPB">
+				>
+			>
+		>
+	>

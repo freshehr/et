@@ -1,0 +1,215 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.exam_pancreas.v0
+
+concept
+	[at0000]	-- Exam pancreas
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Bert Verhees">
+		["email"] = <"bert.verhees@rosa.nl">
+		["organisation"] = <"ROSA Software">
+		["date"] = <"2017-03-09">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Archetype to register pancreas examination.
+This archetype is used in the context of Eurotransplant. ">
+			use = <"Regarding Parenchyma, Signs of calcification, Signs of pancreatitis:
+They contain inside this cluster a Status-item and a CodedText with the same name as the cluster.
+The status item (also coded text) contains only one item: \"Not investigated\", it is optional, as also is the other coded text. Because the archetype model, currently, does not support dependent conditions, it must be used in this way:
+- It is important to understand the following: 
+Like a business-rule following must be noted: A coded text must be used if the status-item is not used. On the other hand, if the status-item (\"Not investigated\") is used, the other coded text in the same cluster will be ignored by the software.">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["current_contact"] = <"Bert Verhees, ROSA Software<bert.verhees@rosa.nl>">
+		["MD5-CAM-1.0.1"] = <"0F8EB617868D96F9B3C43E916A6D693E">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Exam pancreas
+		items cardinality matches {1..*; unordered} matches {
+			CLUSTER[at0004] occurrences matches {0..*} matches {	-- Space Occupying Lesion
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Location Of Space Occupying Lesion
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0006, 	-- Head
+									at0007, 	-- Tail
+									at0008]	-- Multiple Lesions
+								}
+							}
+						}
+					}
+					allow_archetype CLUSTER[at0009] occurrences matches {0..1} matches {	-- Space Occupying Lesion
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.exam_space_occupying_lesion(-[a-zA-Z0-9_]+)*\.v0/}
+					}
+				}
+			}
+			ELEMENT[at0017] occurrences matches {0..1} matches {	-- Parenchyma
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0020, 	-- Normal
+							at0021, 	-- Lipomatosis
+							at0022, 	-- Edema
+							at0023, 	-- Fibrosis
+							at0024, 	-- Not assessable
+							at0039]	-- Not investigated
+						}
+					}
+				}
+			}
+			ELEMENT[at0028] occurrences matches {0..1} matches {	-- Signs of calcification
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0029, 	-- Yes
+							at0030, 	-- No
+							at0031, 	-- Not assessable
+							at0040]	-- Not investigated
+						}
+					}
+				}
+			}
+			ELEMENT[at0033] occurrences matches {0..1} matches {	-- Signs of pancreatitis
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0036, 	-- Yes
+							at0037, 	-- No
+							at0038, 	-- Not assessable
+							at0041]	-- Not investigated
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	terminologies_available = <"SNOMED-CT", ...>
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Exam pancreas">
+					description = <"unknown">
+				>
+				["at0004"] = <
+					text = <"Space Occupying Lesion">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Location Of Space Occupying Lesion">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Head">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Tail">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Multiple Lesions">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Space Occupying Lesion">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Parenchyma">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Normal">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Lipomatosis">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Edema">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Fibrosis">
+					description = <"*">
+				>
+				["at0024"] = <
+					text = <"Not assessable">
+					description = <"Parenchym is investigated but not assessable">
+				>
+				["at0028"] = <
+					text = <"Signs of calcification">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"Yes">
+					description = <"*">
+				>
+				["at0030"] = <
+					text = <"No">
+					description = <"*">
+				>
+				["at0031"] = <
+					text = <"Not assessable">
+					description = <"*">
+				>
+				["at0033"] = <
+					text = <"Signs of pancreatitis">
+					description = <"*">
+				>
+				["at0036"] = <
+					text = <"Yes">
+					description = <"*">
+				>
+				["at0037"] = <
+					text = <"No">
+					description = <"*">
+				>
+				["at0038"] = <
+					text = <"Not assessable">
+					description = <"*">
+				>
+				["at0039"] = <
+					text = <"Not investigated">
+					description = <"*">
+				>
+				["at0040"] = <
+					text = <"Not investigated">
+					description = <"*">
+				>
+				["at0041"] = <
+					text = <"Not investigated">
+					description = <"*">
+				>
+			>
+		>
+	>
+	term_bindings = <
+		["SNOMED-CT"] = <
+			items = <
+				["at0021"] = <[SNOMED-CT::37095002]>
+				["at0022"] = <[SNOMED-CT::267038008]>
+				["at0023"] = <[SNOMED-CT::112674009]>
+			>
+		>
+	>

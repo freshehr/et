@@ -1,0 +1,390 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.ecg_narrative.v0
+
+concept
+	[at0000]	-- Ecg narrative
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For Eurotransplant in COLD (donor) thoracic reports">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"B24F026E880F2130FFE2823E4645F491">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Ecg narrative
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- ECG plot at ET
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002, 	-- Yes
+							at0003]	-- No
+						}
+					}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {	-- Heart rate (Digits BPM)
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::382]>
+						list = <
+							["1"] = <
+								units = <"1/min">
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {	-- Sinus-Rhythmus
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0006, 	-- Yes
+							at0007]	-- No
+						}
+					}
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..1} matches {	-- AV-Block
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0009, 	-- Yes
+							at0010]	-- None
+						}
+					}
+				}
+			}
+			ELEMENT[at0011] occurrences matches {0..1} matches {	-- Atrial Arrythmia
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0012, 	-- Yes
+							at0013]	-- None
+						}
+					}
+				}
+			}
+			ELEMENT[at0014] occurrences matches {0..1} matches {	-- Ventricular Arrythmia
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0016, 	-- Yes
+							at0017]	-- None
+						}
+					}
+				}
+			}
+			CLUSTER[at0044] occurrences matches {0..1} matches {	-- QTc-Time in ms
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0046] occurrences matches {0..1} matches {	-- QTc-Time classification
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0047, 	-- Normal
+									at0048, 	-- Prolonged
+									at0049, 	-- Not assessable
+									at0057]	-- Not investigated
+								}
+							}
+						}
+					}
+					ELEMENT[at0045] occurrences matches {0..1} matches {	-- QTc-Time in ms
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::128]>
+								list = <
+									["1"] = <
+										units = <"millisec">
+									>
+								>
+							>
+						}
+					}
+				}
+			}
+			ELEMENT[at0053] occurrences matches {0..1} matches {	-- Comment
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0030] occurrences matches {0..1} matches {	-- LV-Hypertrophy
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0032, 	-- Yes
+							at0033, 	-- None
+							at0034, 	-- Not assessable
+							at0055]	-- Not investigated
+						}
+					}
+				}
+			}
+			ELEMENT[at0038] occurrences matches {0..1} matches {	-- STT segment changes
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0039, 	-- Yes
+							at0040, 	-- None
+							at0041, 	-- Not assessable
+							at0056]	-- Not investigated
+						}
+					}
+					DV_TEXT matches {*}
+				}
+			}
+			CLUSTER[at0060] occurrences matches {0..1} matches {	-- QRS Changes
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0019] occurrences matches {0..1} matches {	-- QRS changes
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0020, 	-- None
+									at0021, 	-- Left bundle block
+									at0022, 	-- Bifsc. block
+									at0023, 	-- Infarct like
+									at0024, 	-- Right bundle block
+									at0025, 	-- Other
+									at0026, 	-- Not assessable
+									at0054]	-- Not investigated
+								}
+							}
+						}
+					}
+					ELEMENT[at0059] occurrences matches {0..1} matches {	-- Comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	terminologies_available = <"SNOMED-CT", ...>
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Ecg narrative">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"ECG plot at ET">
+					description = <"*">
+				>
+				["at0002"] = <
+					text = <"Yes">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"No">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Heart rate (Digits BPM)">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Sinus-Rhythmus">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Yes">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"No">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"AV-Block">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Yes">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Atrial Arrythmia">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Yes">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Ventricular Arrythmia">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Yes">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"QRS changes">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Left bundle block">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Bifsc. block">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Infarct like">
+					description = <"*">
+				>
+				["at0024"] = <
+					text = <"Right bundle block">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"Other">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"Not assessable">
+					description = <"*">
+				>
+				["at0030"] = <
+					text = <"LV-Hypertrophy">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Yes">
+					description = <"*">
+				>
+				["at0033"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0034"] = <
+					text = <"Not assessable">
+					description = <"*">
+				>
+				["at0038"] = <
+					text = <"STT segment changes">
+					description = <"*">
+				>
+				["at0039"] = <
+					text = <"Yes">
+					description = <"*">
+				>
+				["at0040"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0041"] = <
+					text = <"Not assessable">
+					description = <"*">
+				>
+				["at0044"] = <
+					text = <"QTc-Time in ms">
+					description = <"*">
+				>
+				["at0045"] = <
+					text = <"QTc-Time in ms">
+					description = <"*">
+				>
+				["at0046"] = <
+					text = <"QTc-Time classification">
+					description = <"*">
+				>
+				["at0047"] = <
+					text = <"Normal">
+					description = <"*">
+				>
+				["at0048"] = <
+					text = <"Prolonged">
+					description = <"*">
+				>
+				["at0049"] = <
+					text = <"Not assessable">
+					description = <"*">
+				>
+				["at0053"] = <
+					text = <"Comment">
+					description = <"*">
+				>
+				["at0054"] = <
+					text = <"Not investigated">
+					description = <"*">
+				>
+				["at0055"] = <
+					text = <"Not investigated">
+					description = <"*">
+				>
+				["at0056"] = <
+					text = <"Not investigated">
+					description = <"*">
+				>
+				["at0057"] = <
+					text = <"Not investigated">
+					description = <"*">
+				>
+				["at0059"] = <
+					text = <"Comment">
+					description = <"*">
+				>
+				["at0060"] = <
+					text = <"QRS Changes">
+					description = <"*">
+				>
+			>
+		>
+	>
+	term_bindings = <
+		["SNOMED-CT"] = <
+			items = <
+				["at0004"] = <[SNOMED-CT::364075005]>
+				["at0005"] = <[SNOMED-CT::251150006]>
+				["at0008"] = <[SNOMED-CT::233917008]>
+				["at0011"] = <[SNOMED-CT::17366009]>
+				["at0014"] = <[SNOMED-CT::44103008]>
+				["at0030"] = <[SNOMED-CT::55827005]>
+			>
+		>
+	>

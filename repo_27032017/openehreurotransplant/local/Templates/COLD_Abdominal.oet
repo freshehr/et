@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>c138807c-5feb-4b8c-96ca-ba297a09741f</id>
+  <name>COLD_Abdominal</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>To collect clinical data items COLD_Abdominal </purpose>
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.report.v1" concept_name="Report">
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.imaging_exam_uk.v0" concept_name="Imaging examination result UK" max="1" path="/content" name="COLD Abdominal Imaging Results Summary">
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0044]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0007]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0024]" name="Date/Time of examination" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0014]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0008]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0020]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0021]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0022]" max="0" />
+      <Rule path="/protocol[at0025]/items[at0027]" max="0" />
+      <Rule path="/protocol[at0025]/items[at0042]" max="0" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.exam_abdomen-general_abdomen.v0" concept_name="Examination of the abdomen, specialization for Eurotransplant" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0043]">
+        <Rule path="/items[at0002]" max="0" />
+        <Rule path="/items[at0003]" max="0" />
+        <Rule path="/items[at0006]" max="0" />
+        <Rule path="/items[at0.9]" max="1">
+          <nullFlavourConstraint>
+            <excludedValues>openehr::272</excludedValues>
+            <excludedValues>openehr::273</excludedValues>
+          </nullFlavourConstraint>
+        </Rule>
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.exam_liver.v0" concept_name="Exam liver" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0043]">
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.exam_space_occupying_lesion.v0" concept_name="Space occupying lesion" path="/items[at0033]/items[at0039]" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.exam_aorta.v0" concept_name="Exam aorta" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0043]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.exam_ascites_freefluid.v0" concept_name="Exam ascites freefluid" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0043]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.exam_gall_bladder_and_bile_duct.v0" concept_name="Exam gall bladder and bile duct" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0043]">
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.exam_space_occupying_lesion.v0" concept_name="Space occupying lesion" path="/items[at0003]" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.exam_kidney.v0" concept_name="Exam kidney" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0043]" name="Exam Kidney Left">
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.exam_space_occupying_lesion.v0" concept_name="Space occupying lesion" path="/items[at0017]/items[at0025]" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.exam_kidney.v0" concept_name="Exam kidney" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0043]" name="Exam Kidney Right">
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.exam_space_occupying_lesion.v0" concept_name="Space occupying lesion" path="/items[at0017]/items[at0025]">
+          <Rule path="/items[at0012]">
+            <nullFlavourConstraint>
+              <excludedValues>openehr::272</excludedValues>
+              <excludedValues>openehr::273</excludedValues>
+            </nullFlavourConstraint>
+          </Rule>
+        </Items>
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.exam_pancreas.v0" concept_name="Exam pancreas" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0043]">
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.exam_space_occupying_lesion.v0" concept_name="Space occupying lesion" path="/items[at0004]/items[at0009]" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.exam_vena_cava.v0" concept_name="Exam vena cava" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0043]" />
+    </Content>
+    <Context>
+      <Rule path="/context/other_context[at0001]/items[at0002]" max="0" />
+      <Rule path="/context/other_context[at0001]/items[at0005]" max="0" />
+    </Context>
+  </definition>
+  <view>
+    <constraints path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.imaging_exam_uk.v0]/provider">
+      <items id="VisibleInView">
+        <value>Examiner</value>
+      </items>
+    </constraints>
+  </view>
+</template>

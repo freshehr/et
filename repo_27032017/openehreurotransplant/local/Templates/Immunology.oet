@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>b022f815-e342-4633-9ba5-7a214fd0a293</id>
+  <name>Immunology</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.report-result.v1" concept_name="Result Report" name="Immunological Report">
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0" concept_name="Laboratory test" path="/content">
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" default="HLA" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0073]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0075]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0077]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0100]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]" max="0" />
+      <Rule path="/protocol[at0004]/items[at0068]" max="0" />
+      <Rule path="/protocol[at0004]/items[at0094]" max="0" />
+      <Rule path="/protocol[at0004]/items[at0111]" max="0" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.specimen.v0" concept_name="Specimen" path="/data[at0001]/events[at0002]/data[at0003]/items[at0065]">
+        <Rule path="/items[at0029]" max="0" />
+        <Rule path="/items[at0008]" max="0" />
+        <Rule path="/items[at0007]">
+          <constraint xsi:type="textConstraint">
+            <includedValues>Spleen</includedValues>
+            <includedValues>Peripheral blood</includedValues>
+            <includedValues>Lymph nodes</includedValues>
+            <includedValues>Swab</includedValues>
+            <includedValues>Other</includedValues>
+          </constraint>
+        </Rule>
+        <Rule path="/items[at0079]" max="0" />
+        <Rule path="/items[at0005]" max="0" />
+        <Rule path="/items[at0067]" max="0" />
+        <Rule path="/items[at0070]" max="0" />
+        <Rule path="/items[at0080]" max="0" />
+        <Rule path="/items[at0039]" max="0" />
+        <Rule path="/items[at0046]/items[at0034]" max="0" />
+        <Rule path="/items[at0081]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.histoimmunogenetic_typing.v0" concept_name="Histoimmunogenetic typing" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0002]/items[at0028]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.immunological_screening.v0" concept_name="Immunological_screening" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0084]/items[at0108]">
+          <constraint xsi:type="textConstraint">
+            <excludedValues>local::at0110</excludedValues>
+          </constraint>
+        </Rule>
+      </Items>
+    </Content>
+    <Context>
+      <Rule path="/context/other_context[at0001]/items[at0002]" max="0" />
+      <Rule path="/context/other_context[at0001]/items[at0005]" max="0" />
+    </Context>
+  </definition>
+  <view>
+    <constraints path="[openEHR-EHR-COMPOSITION.report-result.v1]/content[openEHR-EHR-OBSERVATION.laboratory_test.v0]/provider">
+      <items id="VisibleInView">
+        <value>Laboratory</value>
+      </items>
+    </constraints>
+  </view>
+</template>
