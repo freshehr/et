@@ -118,4 +118,19 @@
       </items>
     </constraints>
   </view>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.report-result.v1">
+    <digest id="MD5-CAM-1.0.1">1853F80CFF69F14444CF1C21D9A64834</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0">
+    <digest id="MD5-CAM-1.0.1">64F4898018F4D87C7D8ADAF36558AAF7</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.specimen.v0">
+    <digest id="MD5-CAM-1.0.1">328C511116FD83D7F25973284D8D9F60</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.histoimmunogenetic_typing.v0">
+    <digest id="MD5-CAM-1.0.1">84371F2274829EC63D68FBB715A1FEC0</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.immunological_screening.v0">
+    <digest id="MD5-CAM-1.0.1">1F97A1F1B2ABAA4CDA368351D505E29C</digest>
+  </integrity_checks>
 </template>

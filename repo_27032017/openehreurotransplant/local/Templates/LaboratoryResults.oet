@@ -312,4 +312,127 @@
       </items>
     </constraints>
   </view>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.report-result.v1">
+    <digest id="MD5-CAM-1.0.1">1853F80CFF69F14444CF1C21D9A64834</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0">
+    <digest id="MD5-CAM-1.0.1">64F4898018F4D87C7D8ADAF36558AAF7</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-afp.v0">
+    <digest id="MD5-CAM-1.0.1">29BA56BCEBC5CF83AADFCE81140A43C5</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-albumin.v0">
+    <digest id="MD5-CAM-1.0.1">E0C13400D365A3A28A330FAA5B8A632D</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-amylase.v0">
+    <digest id="MD5-CAM-1.0.1">1C5E286DFA1A43E43BBC7DDE222D1DFF</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-aptt.v0">
+    <digest id="MD5-CAM-1.0.1">66CD29CE09991A492B6FCDCBD215CF10</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-at_iii.v0">
+    <digest id="MD5-CAM-1.0.1">3EA5CD0BF1E725D4E09633D4C0AFA513</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-bilirubine_direct.v0">
+    <digest id="MD5-CAM-1.0.1">18338DC99D5827C64FB811DD73DF8432</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-bilirubine_total.v0">
+    <digest id="MD5-CAM-1.0.1">67BC3B3E09CB87C7574EBF957BD7A08D</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-calcium.v0">
+    <digest id="MD5-CAM-1.0.1">395BAD2EFCF715BF4F99B8EAF8AC4398</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-che.v0">
+    <digest id="MD5-CAM-1.0.1">824FDF4B28CD581A940DD35FCAB1043C</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-chloride.v0">
+    <digest id="MD5-CAM-1.0.1">51DEE7324CC06DD7B969DE5A314E4E84</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-ck.v0">
+    <digest id="MD5-CAM-1.0.1">5923763DB4515FE5D94FD5D4AB6914A8</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-ck_mb.v0">
+    <digest id="MD5-CAM-1.0.1">9998F9B33C5B7DC8BE669A908C073D2C</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-creatinine.v0">
+    <digest id="MD5-CAM-1.0.1">E1C0843B3B49744BBDF441FA795CF6C8</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-creatinine_clearance.v0">
+    <digest id="MD5-CAM-1.0.1">4BF6569552C1860E22C70AD9EED70463</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-crp.v0">
+    <digest id="MD5-CAM-1.0.1">6C154587766AB299F2B43E90A52F38B2</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-ferritin.v0">
+    <digest id="MD5-CAM-1.0.1">C5F979FC10B93BE63CA7D972E5A5BF98</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-fibrinogen.v0">
+    <digest id="MD5-CAM-1.0.1">9C9DA7369518B180B597A42DB6ED4071</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-gamma_gt.v0">
+    <digest id="MD5-CAM-1.0.1">D903CAFD337061E93FE20A11E7359E65</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-glucose.v0">
+    <digest id="MD5-CAM-1.0.1">6FCC5A95D3CD54EF6E82DEB44001B0BE</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-hba1c.v0">
+    <digest id="MD5-CAM-1.0.1">B6AF882ED74C41CC6DC0DB7086B8A202</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-hematocrit.v0">
+    <digest id="MD5-CAM-1.0.1">822D7B7A239C7B3DA7C41591B04E18B6</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-hemoglobin.v0">
+    <digest id="MD5-CAM-1.0.1">A0A9FCECAA2A4792ACDAB1E279137E73</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-inr.v0">
+    <digest id="MD5-CAM-1.0.1">2D5E1C08C8FD29FC6FA42BEDCADB578C</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-ldh.v0">
+    <digest id="MD5-CAM-1.0.1">D35AD602A3CDD5B9686A8BDC52C1138C</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-leucocytes.v0">
+    <digest id="MD5-CAM-1.0.1">9E5993C2DF63CB8EFD5EB1326FFBF827</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-lipase.v0">
+    <digest id="MD5-CAM-1.0.1">8146187F679F3648C09F9E755C2661DB</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-potassium.v0">
+    <digest id="MD5-CAM-1.0.1">176272E485AAB68BFE7CBA7071ECBC55</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-protein_total.v0">
+    <digest id="MD5-CAM-1.0.1">D254E79D7A0BE27876A30A8963238A30</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-pt.v0">
+    <digest id="MD5-CAM-1.0.1">68B6450D701AD0AD376C55D6AB09B1C1</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-quick.v0">
+    <digest id="MD5-CAM-1.0.1">4D3B5516B852C464E564A310BB68BD85</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-red_blood_cell_count.v0">
+    <digest id="MD5-CAM-1.0.1">A8C71E03BA8545041FA73226B75BEEAF</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-sgot.v0">
+    <digest id="MD5-CAM-1.0.1">85A682CE137C1409BB9C2F57BB813FAA</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-sgpt.v0">
+    <digest id="MD5-CAM-1.0.1">BB97F6201BB4931F9A39E30C7F562940</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-sodium.v0">
+    <digest id="MD5-CAM-1.0.1">1F6D59680DDD600079298F6620D3FDA9</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-thrombocytes.v0">
+    <digest id="MD5-CAM-1.0.1">A61F95EF91C6EEAE36D9618573F605E0</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-troponine.v0">
+    <digest id="MD5-CAM-1.0.1">50E9644AC454D9BD6233B8442F1CBE3F</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-troponine_i.v0">
+    <digest id="MD5-CAM-1.0.1">906FC533EA34685F9F4197E607221E8E</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-troponine_t.v0">
+    <digest id="MD5-CAM-1.0.1">EA4FDF8CDED9711C5750165120015B7D</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-urea.v0">
+    <digest id="MD5-CAM-1.0.1">E3AB5EFD6B2A3361883EC1733F4B86B8</digest>
+  </integrity_checks>
 </template>

@@ -53,7 +53,7 @@ Pathology (Data Specifications) Version 1.0 [Internet]. Sydney, Australia: Natio
 Laboratory Technical Framework, Volume 3: Content, Revision 3.0 [Internet]. USA: IHE International; 2011 May 19; [cited 2011 Jul 11]. Available from: http://www.ihe.net/Technical_Framework/index.cfm#laboratory
 
 Hl7 FHIR Observation resource: HL7 FHIR; Available from http://www.hl7.org/implement/standards/fhir/observation.html">
-		["MD5-CAM-1.0.1"] = <"E676FC95459A185ADA1D643987413230">
+		["MD5-CAM-1.0.1"] = <"E020271A4C8BFFA33C29888F06586E8E">
 		["custodian_namespace"] = <"org.openehr">
 		["custodian_organisation"] = <"openEHR Foundation">
 	>
@@ -63,7 +63,7 @@ definition
 		items cardinality matches {1..*; unordered} matches {
 			CLUSTER[at0002] occurrences matches {0..*} matches {	-- Laboratory result
 				items cardinality matches {1..*; unordered} matches {
-					ELEMENT[at0001.1] occurrences matches {0..1} matches {	-- Result value
+					ELEMENT[at0001.1] occurrences matches {0..1} matches {	-- Troponine I
 						value matches {
 							C_DV_QUANTITY <
 								property = <[openehr::119]>
@@ -143,7 +143,7 @@ ontology
 					fhir_mapping = <"Observation.result; Observation.name">
 				>
 				["at0001.1"] = <
-					text = <"Result value">
+					text = <"Troponine I">
 					description = <"Troponine I test: Actual value of the result.">
 				>
 				["at0002"] = <
@@ -231,11 +231,6 @@ ontology
 		["LOINC"] = <
 			items = <
 				["at0000.1"] = <[LOINC::10839-9]>
-			>
-		>
-		["SNOMED-CT"] = <
-			items = <
-				["at0000.1"] = <[SNOMED-CT::121870001]>
 			>
 		>
 	>
