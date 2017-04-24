@@ -1,0 +1,85 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.mars_status.v0
+
+concept
+	[at0000]	-- Mars status
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Bert Verhees">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To register the status of the Molecular Adsorbents Recirculation System">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"531B97CCCCA7B111A74877268999385F">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Mars status
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Status
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0003, 	-- Yes
+									at0004]	-- No
+								}
+							}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Date Start MARS Therapy
+						value matches {
+							DV_DATE matches {
+								value matches {yyyy-mm-dd}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Mars status">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Status">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Yes">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"No">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Date Start MARS Therapy">
+					description = <"*">
+				>
+			>
+		>
+	>

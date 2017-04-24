@@ -1,0 +1,142 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.hla.v0
+
+concept
+	[at0000]	-- Hla
+language
+	original_language = <[ISO_639-1::nl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["nl"] = <
+			language = <[ISO_639-1::nl]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"2ED384B8CF6CBDE8A6176C0D3DCD40BD">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Hla
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					CLUSTER[at0002] occurrences matches {0..*} matches {	-- antigen
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0011] occurrences matches {0..1} matches {	-- Test technique
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0012, 	-- Serology
+											at0013]	-- DNA
+										}
+									}
+								}
+							}
+							ELEMENT[at0004] occurrences matches {0..1} matches {	-- antigen
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0003] occurrences matches {0..1} matches {	-- type
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0005, 	-- broad
+											at0008, 	-- split
+											at0009, 	-- allele
+											at0010]	-- public
+										}
+									}
+								}
+							}
+							ELEMENT[at0006] occurrences matches {0..1} matches {	-- broad
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0007] occurrences matches {0..1} matches {	-- split
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["nl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Hla">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"antigen">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"type">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"antigen">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"broad">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"broad">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"split">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"split">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"allele">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"public">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Test technique">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Serology">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"DNA">
+					description = <"*">
+				>
+			>
+		>
+	>

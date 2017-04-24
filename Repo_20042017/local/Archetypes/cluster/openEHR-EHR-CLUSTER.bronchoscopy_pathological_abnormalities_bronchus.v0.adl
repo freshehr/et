@@ -1,0 +1,201 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.bronchoscopy_pathological_abnormalities_bronchus.v0
+
+concept
+	[at0000]	-- Bronchoscopy Pathological abnormalities bronchus
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Bert Verhees">
+		["date"] = <"2017-02-08">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For Eurotransplant in COLD (donor) thoracic reports">
+			use = <"To record bronchoscopy pathological abnormalities
+
+Normally used in conjunction with the containing Bronchoscopy (Cluster) archetype, which is again used in conjunction with the Laboratory Test Panel (Cluster) archetype
+">
+			keywords = <"bronchus", "putrid secretions", "epithelium", "inflammation", "tumor", "ulceration", "aspiration">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"B6201ABB597516CD0409D9B9EAC70B08">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Bronchoscopy Pathological abnormalities bronchus
+		items cardinality matches {1..*; unordered} matches {
+			CLUSTER[at0001] occurrences matches {0..1} matches {	-- Epithelium bronchus
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Pathological abnormalities bronchus
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0003, 	-- Inflammation
+									at0004, 	-- Bleeding
+									at0005, 	-- Ulceration
+									at0006, 	-- Tumor
+									at0007, 	-- Putrid secretions
+									at0008]	-- Aspiration 
+								}
+							}
+						}
+					}
+					CLUSTER[at0009] occurrences matches {0..1} matches {	-- Putrid secretions
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0010] occurrences matches {0..1} matches {	-- After suction
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0011, 	-- Clean
+											at0012, 	-- Refill (from periphery)
+											at0028]	-- Not investigated
+										}
+									}
+								}
+							}
+							ELEMENT[at0013] occurrences matches {0..1} matches {	-- Location of secretion
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0014, 	-- None
+											at0015, 	-- Main
+											at0016, 	-- Lobar
+											at0017]	-- Sublobar
+										}
+									}
+								}
+							}
+						}
+					}
+					ELEMENT[at0021] occurrences matches {0..1} matches {	-- Epithelium bronchus
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0022, 	-- Pathological
+									at0023, 	-- Normal
+									at0024, 	-- Not assessable
+									at0027]	-- Not investigated
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Bronchoscopy Pathological abnormalities bronchus">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Epithelium bronchus">
+					description = <"*">
+				>
+				["at0002"] = <
+					text = <"Pathological abnormalities bronchus">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Inflammation">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Bleeding">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Ulceration">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Tumor">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Putrid secretions">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Aspiration ">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Putrid secretions">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"After suction">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Clean">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Refill (from periphery)">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Location of secretion">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Main">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Lobar">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Sublobar">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Epithelium bronchus">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Pathological">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Normal">
+					description = <"*">
+				>
+				["at0024"] = <
+					text = <"Not assessable">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"Not investigated">
+					description = <"*">
+				>
+				["at0028"] = <
+					text = <"Not investigated">
+					description = <"*">
+				>
+			>
+		>
+	>

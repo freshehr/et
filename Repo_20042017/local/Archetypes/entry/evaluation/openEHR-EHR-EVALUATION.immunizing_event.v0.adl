@@ -1,0 +1,97 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.immunizing_event.v0
+
+concept
+	[at0000]	-- Immunizing event
+language
+	original_language = <[ISO_639-1::nl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["nl"] = <
+			language = <[ISO_639-1::nl]>
+			purpose = <"To record if there has been an immunizing event such as a pregnancy and/or blood transfusions.">
+			use = <"These items are of importance to indicate if an immunizing event took place. If a immunizing event took place the recipient should receive an antibody screening.">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"075AE99F57CEA28FA4800460E01716A3">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Immunizing event
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- Pregnancies
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0007, 	-- Yes
+									at0008]	-- No
+								}
+							}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- Blood Transfusions
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0005, 	-- Yes
+									at0006]	-- No
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["nl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Immunizing event">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"Pregnancies">
+					description = <"To indicate if the patient has been or is pregnant (at anytime in the past) Including terminated pregnancies. ">
+				>
+				["at0004"] = <
+					text = <"Blood Transfusions">
+					description = <"Has had blood transfusions at any time in the past.">
+				>
+				["at0005"] = <
+					text = <"Yes">
+					description = <"Did receive blood transfusions">
+				>
+				["at0006"] = <
+					text = <"No">
+					description = <"Did not receive blood transfusions">
+				>
+				["at0007"] = <
+					text = <"Yes">
+					description = <"Has been pregnant">
+				>
+				["at0008"] = <
+					text = <"No">
+					description = <"Has not been pregnant">
+				>
+			>
+		>
+	>

@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>298f24fe-14b6-4ab8-8fd1-3c807a850c07</id>
+  <name>LaboratoryResults</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.report-result.v1" concept_name="Result Report" name="Clinical Donor Laboratory Results">
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0" concept_name="Laboratory test" path="/content">
+      <Rule path="/protocol[at0004]/items[at0068]" max="0" />
+      <Rule path="/protocol[at0004]/items[at0094]" max="0" />
+      <Rule path="/protocol[at0004]/items[at0111]" max="0" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-afp-mass_volume.v0" concept_name="Alpha-1-Fetoprotein Mass/volume] in Serum or Plasma" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-albumin-mass_volume.v0" concept_name="Albumin in CSF/​Albumin in Serum or Plasma" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-amylase-moles_per_sec_per_volume.v0" concept_name="Amylase measurement (procedure) umol/s/l!" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-amylase-units_volume.v0" concept_name="Amylase [Enzymatic activity/​volume] in Serum or Plasma" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-aptt.v0" concept_name="APTT (Activated PT)" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-at_iii.v0" concept_name="AT III" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-bilirubine_direct-mass_volume.v0" concept_name="Bilirubin.direct [Mass/​volume] in Serum or Plasma" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-bilirubine_direct-moles_volume.v0" concept_name="Bilirubin.direct [Moles/​volume] in Serum or Plasma" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-bilirubine_total-mass_volume.v0" concept_name="Bilirubin.total [Mass/?volume] in Serum or Plasma" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-bilirubine_total-moles_volume.v0" concept_name="Bilirubin.total [Moles/​volume] in Serum or Plasma" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-c_peptide-mass_volume.v0" concept_name="C peptide [Mass/​volume] in Serum or Plasma" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-c_peptide-moles_volume.v0" concept_name="C peptide [Moles/​volume] in Serum or Plasma" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-calcium-mass_volume.v0" concept_name="Calcium [Mass/​volume] in Serum or Plasma" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-calcium-moles_volume.v0" concept_name="Calcium [Moles/​volume] in Serum or Plasma" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-che.v0" concept_name="Serum Cholinesterase of the blood test result" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-chloride.v0" concept_name="Chloride [Moles/​volume] in Serum or Plasma" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-ck-moles_per_sec_per_volume.v0" concept_name="Creatine kinase measurement (procedure) (umol/s/l)" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-ck-units_volume.v0" concept_name="Creatine kinase [Enzymatic activity/​volume] in Serum or Plasma!" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-creatinine-mass_volume.v0" concept_name="Creatinine [Mass/volume] in Serum or Plasma" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-creatinine-moles_volume.v0" concept_name="Creatinine [Moles/volume] in Serum or Plasma" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-creatinine_clearance.v0" concept_name="Measurement of renal clearance of creatinine (procedure)" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-crp-mass_volume.v0" concept_name="C reactive protein [Mass/​volume] in Serum or Plasma" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-ferritin-mass_volume.v0" concept_name="Ferritin [Mass/​volume] in Serum or Plasma" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-fibrinogen-mass_volume.v0" concept_name="​Fibrinogen fragments [Mass/​volume] in Serum" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-gamma_gt-mass_volume.v0" concept_name="Gamma glutamyl transferase [Enzymatic activity/​volume] in Serum or Plasma  (U/L)" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-gamma_gt-moles_volume.v0" concept_name="Gamma glutamyl transferase [Enzymatic activity/​volume] in Serum or Plasma  (umol/s/l)" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-glucose-mass_volume.v0" concept_name="Glucose [Mass/Volume] in Serum or Plasma" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-glucose-moles_volume.v0" concept_name="Glucose [Moles/Volume] in Serum or Plasma" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-hba1c.v0" concept_name="Hemoglobin A1c/​Hemoglobin.total in Blood" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-hematocrit.v0" concept_name="Hematocrit [Volume Fraction] of Blood" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-hemoglobin-mass_volume.v0" concept_name="Free Hemoglobin [Mass/​volume] in Serum" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-hemoglobin-moles_volume.v0" concept_name="Free Hemoglobin [Moles/​volume] in Serum" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-inr.v0" concept_name="INR test result" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-ldh-moles_per_sec_per_volume.v0" concept_name="Lactate dehydrogenase measurement (procedure) " path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-ldh-mass_volume.v0" concept_name="Lactate dehydrogenase [Enzymatic activity/​volume] in Serum or Plasma" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-leucocytes.v0" concept_name=" Leukocytes [#/​volume] in Blood" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-lipase-enzymatic_activity_per_volume.v0" concept_name="Lipase [Enzymatic activity/​volume] in Serum or Plasma" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-lipase-moles_per_sec_per_volume.v0" concept_name="Lipase measurement (procedure) (umol/s/l)" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-potassium-moles_volume.v0" concept_name="Potassium [Moles/​volume] in Serum or Plasma" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-protein_total.v0" concept_name="Total protein measurement (procedure)" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-pt.v0" concept_name="Partial thromboplastin time, activated (procedure)" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-quick.v0" concept_name="Quick test result" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-red_blood_cell_count.v0" concept_name="Erythrocytes [#/?volume] in Blood" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-sgot-enzymatic_activity_per_volume.v0" concept_name="Aspartate aminotransferase [Enzymatic activity/​volume] in Serum or Plasma" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-sgot-moles_per_second_volume.v0" concept_name="Aspartate aminotransferase [Enzymatic activity/​volume (nmol/s/l)] in Serum or Plasma" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-sgpt-enzymatic_activity_per_volume.v0" concept_name="Alanine aminotransferase [Enzymatic activity/​volume] in Serum or Plasma" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-sgpt-moles_per_second_per_volume.v0" concept_name="SGPT (ALAT) Alanine aminotransferase nmol/s/l" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-sodium-mass_volume.v0" concept_name="Sodium measurement, serum (procedure) Maas/Volume" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-sodium-moles_volume.v0" concept_name="Sodium [Moles/?volume] in Serum or Plasma" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-sodium-mass_volume.v0" concept_name="Sodium measurement, serum (procedure)" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-thrombocytes.v0" concept_name="Platelets [#/​volume] in Blood" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-troponine_i-mass_volume.v0" concept_name="Troponin I.cardiac [Mass/?volume] in Serum or Plasma" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-troponine-mass_volume.v0" concept_name="Troponin measurement (procedure)" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-troponine_t-mass_volume.v0" concept_name="Troponine T test result  Mass Volume" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-urea-mass_volume.v0" concept_name="Urea nitrogen [Mass/​volume] in Serum or Plasma" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel-urea-moles_volume.v0" concept_name="Urea nitrogen [Moles/​volume] in Serum or Plasma" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" />
+    </Content>
+    <Context>
+      <Rule path="/context/other_context[at0001]/items[at0002]" max="0" />
+      <Rule path="/context/other_context[at0001]/items[at0005]" max="0" />
+    </Context>
+  </definition>
+  <view>
+    <constraints path="[openEHR-EHR-COMPOSITION.report-result.v1]/content[openEHR-EHR-OBSERVATION.laboratory_test.v0]/provider">
+      <items id="VisibleInView">
+        <value>Examiner</value>
+      </items>
+    </constraints>
+  </view>
+</template>

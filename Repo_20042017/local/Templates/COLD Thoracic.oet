@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>cfe43f43-8e6e-4b46-adce-6abd6d57d646</id>
+  <name>COLD Thoracic</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>To collect clinical data items COLD Thoracic</purpose>
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.report-result.v1" concept_name="Result Report">
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.imaging_exam_uk.v0" concept_name="Imaging examination result UK" max="1" path="/content" name="COLD Thoracic Imaging Results Summary">
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0044]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0007]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0024]" name="Date/Time of examination" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0014]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0008]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0020]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0021]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0022]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0023]" max="0" />
+      <Rule path="/protocol[at0025]/items[at0027]" max="0" />
+      <Rule path="/protocol[at0025]/items[at0042]" max="0" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.coronary_angiography.v0" concept_name="Coronary angiography" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0043]">
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.coronary_stenosis_classification.v0" concept_name="Coronary stenosis classification" path="/items[at0058]/items[at0056]/items[at0057]" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.coronary_stenosis_classification.v0" concept_name="Coronary stenosis classification" path="/items[at0058]/items[at0018]/items[at0036]" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.echo_cardiography.v0" concept_name="Echo cardiography" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0043]">
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.medication_substance-inotrope_kind.v0" concept_name="Medication substance Inotrope" path="/items[at0001]/items[at0002]">
+          <Rule path="/items[at0132.1]" name="Inotrope" />
+          <Rule path="/items[at0142]" max="0" />
+          <Rule path="/items[at0117]" max="0" />
+          <Rule path="/items[at0126]" max="0" />
+          <Rule path="/items[at0133]" max="0" />
+        </Items>
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.timing_daily.v0" concept_name="Timing - daily" path="/items[at0001]/items[at0003]" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.blood_pressure.v0" concept_name="Blood pressure" max="1" path="/items[at0114]/items[at0118]" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.pulse.v0" concept_name="Pulse" max="1" path="/items[at0114]/items[at0119]" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.intravascular_pressure-cvp.v0" concept_name="Intravascular pressure cvp" max="1" path="/items[at0114]/items[at0120]" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.valve_condition.v0" concept_name="Valve condition" path="/items[at0107]" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.bronchoscopy.v0" concept_name="Bronchoscopy" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0043]">
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.bronchoscopy_pathological_abnormalities_bronchus.v0" concept_name="Bronchoscopy Pathological abnormalities bronchus" path="/items[at0023]" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.bronchoscopy_pathological_abnormalities_bronchus.v0" concept_name="Bronchoscopy Pathological abnormalities bronchus" path="/items[at0025]" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.ecg_narrative.v0" concept_name="Ecg narrative" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0043]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.ctx_thorax.v0" concept_name="Ctx thorax" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0043]">
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.ctx_pathological_abnormalities_bronchus.v0" concept_name="Ctx pathological abnormalities bronchus" max="1" path="/items[at0014]" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.ctx_pathological_abnormalities_bronchus.v0" concept_name="Ctx pathological abnormalities bronchus" max="1" path="/items[at0015]" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.device-general.v1" concept_name="Medical Device" max="1" path="/items[at0050]">
+          <Rule path="/items[at0001.1]" max="0" />
+          <Rule path="/items[at0002]" max="0" />
+          <Rule path="/items[at0021]" max="0" />
+          <Rule path="/items[at0004]" max="0" />
+          <Rule path="/items[at0005]" max="0" />
+          <Rule path="/items[at0020]" max="0" />
+          <Rule path="/items[at0022]" max="0" />
+          <Rule path="/items[at0023]" max="0" />
+          <Rule path="/items[at0006]" max="0" />
+          <Rule path="/items[at0025]" max="0" />
+          <Rule path="/items[at0007]" max="0" />
+          <Rule path="/items[at0024]" max="0" />
+        </Items>
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.blood_gas_fio2_1_after_lung_recruitment.v0" concept_name="Blood gas at FIO2=1.0 after lung recruitment" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0043]">
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.arterial_blood_gas.v0" concept_name="Arterial blood gas" path="/items[at0023]">
+          <Rule path="/items[at0008]" max="0" />
+          <Rule path="/items[at0009]" max="0" />
+          <Rule path="/items[at0010]" max="0" />
+          <Rule path="/items[at0011]" max="0" />
+          <Rule path="/items[at0012]" max="0" />
+          <Rule path="/items[at0013]" max="0" />
+          <Rule path="/items[at0014]" max="0" />
+        </Items>
+      </Items>
+    </Content>
+    <Context>
+      <Rule path="/context/other_context[at0001]/items[at0002]" max="0" />
+      <Rule path="/context/other_context[at0001]/items[at0005]" max="0" />
+    </Context>
+  </definition>
+  <view>
+    <constraints path="[openEHR-EHR-COMPOSITION.report-result.v1]/content[openEHR-EHR-OBSERVATION.imaging_exam_uk.v0]/provider">
+      <items id="VisibleInView">
+        <value>Examiner</value>
+      </items>
+    </constraints>
+  </view>
+</template>

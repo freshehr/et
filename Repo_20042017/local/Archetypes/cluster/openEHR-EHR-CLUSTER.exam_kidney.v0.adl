@@ -1,0 +1,285 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.exam_kidney.v0
+
+concept
+	[at0000]	-- Exam kidney
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Bert Verhees">
+		["email"] = <"bert.verhees@rosa.nl">
+		["organisation"] = <"ROSA Software">
+		["date"] = <"2017-03-09">
+	>
+	details = <
+		["/e"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"In context of COLD">
+			use = <"In context of COLD">
+			keywords = <"kidney", "COLD", "eurotransplant">
+			misuse = <"">
+			copyright = <"">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To report the examination of the Kidney (Left and Right use the same archetype)
+This archetype is used in the context of Eurotransplant. 
+
+Parenchyma -> parenchyma: clinical information about kidney-parenchyma
+
+Nephrolithiasis/ Renal Calculi -> Nephrolithiasis/ Renal Calculi : clinical information about renal calculi.
+
+Hydronefrosis/ Obstruction -> Hydronefrosis/ Obstruction : clinical information about hydronefosis
+
+Measurements -> Measurements : measurements of kidney and parenchyma
+
+Space Occupying Lesion is a cluster, it has two items, one is the location of the space occupying lesion and the other holds information about space occupying lesions, it is an archetypeslot.
+The cluster has occurences unbounded, there can be more of them, and every lesion inside the cluster consists of a location kidney related) and the archetypeslot. Both have occurrences of 0..1 (optional)">
+			use = <"Regarding Parenchyma, Hydronefrosis/ Obstruction, Nephrolithiasis/ Renal Calculi:
+They contain inside these clusters a Status-item and a CodedText with the same name as the cluster.
+The status item (also coded text) contains only one item: \"Not investigated\", it is optional, as also is the other coded text. Because the archetype model, currently, does not support dependent conditions, it must be used in this way:
+- It is important to understand the following: 
+Like a business-rule following must be noted: A coded text must be used if the status-item is not used. On the other hand, if the status-item (\"Not investigated\") is used, the other coded text in the same cluster will be ignored by the software.">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["current_contact"] = <"Bert Verhees, ROSA Software<bert.verhees@rosa.nl>">
+		["MD5-CAM-1.0.1"] = <"84B20C5521CDFA2BFD23A81784ECEF41">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Exam kidney
+		items cardinality matches {1..*; unordered} matches {
+			CLUSTER[at0017] occurrences matches {0..*} matches {	-- Space Occupying Lesion
+				items cardinality matches {1..*; unordered} matches {
+					allow_archetype CLUSTER[at0025] occurrences matches {0..1} matches {	-- Space Occupying Lesion
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.exam_space_occupying_lesion(-[a-zA-Z0-9_]+)*\.v0/}
+					}
+					ELEMENT[at0026] occurrences matches {0..1} matches {	-- Location Of Space Occupying Lesion
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0031, 	-- Upper pole
+									at0032, 	-- Middle section
+									at0033, 	-- Lower pole
+									at0034]	-- Multiple locations
+								}
+							}
+						}
+					}
+				}
+			}
+			CLUSTER[at0057] occurrences matches {0..1} matches {	-- Measurements
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0029] occurrences matches {0..1} matches {	-- Thickness Of Parenchyma
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::122]>
+								list = <
+									["1"] = <
+										units = <"cm">
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0030] occurrences matches {0..1} matches {	-- Height
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::122]>
+								list = <
+									["1"] = <
+										units = <"cm">
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0001] occurrences matches {0..1} matches {	-- Width
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::122]>
+								list = <
+									["1"] = <
+										units = <"cm">
+									>
+								>
+							>
+						}
+					}
+				}
+			}
+			ELEMENT[at0040] occurrences matches {0..1} matches {	-- Hydronefrosis/ Obstruction
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0053, 	-- Yes
+							at0054, 	-- No
+							at0056, 	-- Not assessable
+							at0062]	-- Not investigated
+						}
+					}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {	-- Parenchyma
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0003, 	-- Normal size, normal parenchyma
+							at0004, 	-- Thin / Athrophic parenchyma
+							at0005, 	-- Atrophic kidney
+							at0006, 	-- Nephrectomy
+							at0061, 	-- Not assessable
+							at0063]	-- Not investigated
+						}
+					}
+				}
+			}
+			ELEMENT[at0037] occurrences matches {0..1} matches {	-- Nephrolithiasis/ Renal Calculi
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0051, 	-- Yes
+							at0052, 	-- No
+							at0055, 	-- Not assessable
+							at0064]	-- Not investigated
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Exam kidney">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Width">
+					description = <"*">
+				>
+				["at0002"] = <
+					text = <"Parenchyma">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Normal size, normal parenchyma">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Thin / Athrophic parenchyma">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Atrophic kidney">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Nephrectomy">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Space Occupying Lesion">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"Space Occupying Lesion">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"Location Of Space Occupying Lesion">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"Thickness Of Parenchyma">
+					description = <"*">
+				>
+				["at0030"] = <
+					text = <"Height">
+					description = <"*">
+				>
+				["at0031"] = <
+					text = <"Upper pole">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Middle section">
+					description = <"*">
+				>
+				["at0033"] = <
+					text = <"Lower pole">
+					description = <"*">
+				>
+				["at0034"] = <
+					text = <"Multiple locations">
+					description = <"*">
+				>
+				["at0037"] = <
+					text = <"Nephrolithiasis/ Renal Calculi">
+					description = <"*">
+				>
+				["at0040"] = <
+					text = <"Hydronefrosis/ Obstruction">
+					description = <"*">
+				>
+				["at0051"] = <
+					text = <"Yes">
+					description = <"*">
+				>
+				["at0052"] = <
+					text = <"No">
+					description = <"*">
+				>
+				["at0053"] = <
+					text = <"Yes">
+					description = <"*">
+				>
+				["at0054"] = <
+					text = <"No">
+					description = <"*">
+				>
+				["at0055"] = <
+					text = <"Not assessable">
+					description = <"*">
+				>
+				["at0056"] = <
+					text = <"Not assessable">
+					description = <"*">
+				>
+				["at0057"] = <
+					text = <"Measurements">
+					description = <"*">
+				>
+				["at0061"] = <
+					text = <"Not assessable">
+					description = <"*">
+				>
+				["at0062"] = <
+					text = <"Not investigated">
+					description = <"*">
+				>
+				["at0063"] = <
+					text = <"Not investigated">
+					description = <"*">
+				>
+				["at0064"] = <
+					text = <"Not investigated">
+					description = <"*">
+				>
+			>
+		>
+	>
