@@ -1,0 +1,65 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.hml_property.v0
+
+concept
+	[at0000]	-- Hml property
+language
+	original_language = <[ISO_639-1::nl]>
+description
+	original_author = <
+		["name"] = <"Wouter Zanen">
+		["email"] = <"w.zanen@eurotransplant.org">
+		["organisation"] = <"Eurotransplant">
+		["date"] = <"2017-04-14">
+	>
+	details = <
+		["nl"] = <
+			language = <[ISO_639-1::nl]>
+			purpose = <"A generic name-value pair to be stored within an HML message. With this tructure you can store any value that is not in current HML schema
+ ">
+			use = <"This is to be used in combination with the HistoImmonogentic Typing OBSERVATION. To be used in the property SLOT. ">
+			misuse = <"Not to be used in any other slot. ">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"B0EBA8C8FBE44DA5B9C0C7A43B1ECE55">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Hml property
+		items cardinality matches {2..*; unordered} matches {
+			ELEMENT[at0001] matches {	-- Name
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0002] matches {	-- Value
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["nl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Hml property">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Name">
+					description = <"*">
+				>
+				["at0002"] = <
+					text = <"Value">
+					description = <"*">
+				>
+			>
+		>
+	>

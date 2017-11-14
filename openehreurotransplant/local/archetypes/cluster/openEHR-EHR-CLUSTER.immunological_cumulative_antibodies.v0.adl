@@ -1,0 +1,59 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.immunological_cumulative_antibodies.v0
+
+concept
+	[at0000]	-- Immunological Cumulative Antibodies
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Used to record the cumulative antibodies">
+			use = <"Used for  recording cumulative antibodies. Should be added after every new antibody found in the recipient. The center can decide to remove an antibody from the cumulative antibodies when they consider the antibody no longer relevant for the patient.">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"A57436B2F5A80AF10DEB52CA603EBBB8">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Immunological Cumulative Antibodies
+		items cardinality matches {1..*; unordered} matches {
+			CLUSTER[at0129] occurrences matches {0..*} matches {	-- Cumulative Antibodies
+				items cardinality matches {1..*; unordered} matches {
+					allow_archetype CLUSTER[at0125] matches {	-- Antigen
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.antigen(-[a-zA-Z0-9_]+)*\.v0/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Immunological Cumulative Antibodies">
+					description = <"To record immunlogical results">
+				>
+				["at0125"] = <
+					text = <"Antigen">
+					description = <"*">
+				>
+				["at0129"] = <
+					text = <"Cumulative Antibodies">
+					description = <"contains one unnacceptable antigen, is unbounded so this cluster is repeated to form a list of antigens.">
+				>
+			>
+		>
+	>

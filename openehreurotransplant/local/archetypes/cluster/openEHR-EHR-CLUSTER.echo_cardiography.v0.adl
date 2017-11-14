@@ -1,0 +1,826 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.echo_cardiography.v0
+
+concept
+	[at0000]	-- Echo cardiography
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Bert Verhees">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For Eurotransplant in COLD (donor) thoracic reports">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"BC7AFFBACC3736804AA3ED0B8896D5CD">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Echo cardiography
+		items cardinality matches {1..*; unordered} matches {
+			CLUSTER[at0114] occurrences matches {0..1} matches {	-- Haemodynamics measurement
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0115] occurrences matches {0..1} matches {	-- Haemodynamics measurement at time of measurment available
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0116, 	-- Yes
+									at0117]	-- No
+								}
+							}
+						}
+					}
+					allow_archetype CLUSTER[at0118] occurrences matches {0..*} matches {	-- Mean arterial blood pressure (MAP)
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.blood_pressure(-[a-zA-Z0-9_]+)*\.v0/}
+					}
+					allow_archetype CLUSTER[at0119] occurrences matches {0..*} matches {	-- Heartrate
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.pulse(-[a-zA-Z0-9_]+)*\.v0/}
+					}
+					allow_archetype CLUSTER[at0120] occurrences matches {0..*} matches {	-- Central venous pressure (CVP)
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.intravascular_pressure-cvp(-[a-zA-Z0-9_]+)*\.v0/}
+					}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {	-- Type of examination
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0006, 	-- TTE (trans-thoracic)
+							at0007]	-- TEE (trans-oesophagal)
+						}
+					}
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..1} matches {	-- IVSd. (intraventricular septum diastolic thickness)
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::122]>
+						list = <
+							["1"] = <
+								units = <"mm">
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0009] occurrences matches {0..1} matches {	-- IVSs. (intraventricular septum systolic thickness)
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::122]>
+						list = <
+							["1"] = <
+								units = <"mm">
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0010] occurrences matches {0..1} matches {	-- Visualisation ultrasound
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0011, 	-- Normal
+							at0012, 	-- Limited
+							at0013]	-- Severly Limited
+						}
+					}
+				}
+			}
+			ELEMENT[at0015] occurrences matches {0..1} matches {	-- Aortic annulus (root)
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::122]>
+						list = <
+							["1"] = <
+								units = <"mm">
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0016] occurrences matches {0..1} matches {	-- Ascending aorta
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::122]>
+						list = <
+							["1"] = <
+								units = <"mm">
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0017] occurrences matches {0..1} matches {	-- Morphology of aorta
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			CLUSTER[at0022] occurrences matches {0..1} matches {	-- Pericardial
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0018] occurrences matches {0..1} matches {	-- Pericardial effusion
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0019, 	-- Yes
+									at0020, 	-- No
+									at0021, 	-- Not assessable
+									at0121]	-- Not investigated
+								}
+							}
+						}
+					}
+					ELEMENT[at0122] occurrences matches {0..1} matches {	-- Thickness
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::122]>
+								list = <
+									["1"] = <
+										units = <"mm">
+									>
+								>
+							>
+						}
+					}
+				}
+			}
+			ELEMENT[at0026] occurrences matches {0..1} matches {	-- Further measurements / remarks (e.g. suspicion of endocarditis, malformations (ASD/VSD))
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			CLUSTER[at0027] occurrences matches {0..1} matches {	-- Left
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0037] occurrences matches {0..1} matches {	-- Summary LVF diastolic  (diastolic left ventricular function)
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0038, 	-- Normal
+									at0039, 	-- Diastolic slightly impaired
+									at0040, 	-- Diastolic dysfunction
+									at0041, 	-- Not assessable
+									at0123]	-- Not investigated
+								}
+							}
+						}
+					}
+					ELEMENT[at0045] occurrences matches {0..1} matches {	-- Summary LVF systolic (systolic left ventricular function)
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0046, 	-- Normal
+									at0047, 	-- Moderately reduced
+									at0048, 	-- Severly reduced
+									at0049, 	-- Not assessable
+									at0124]	-- Not investigated
+								}
+							}
+						}
+					}
+					ELEMENT[at0053] occurrences matches {0..1} matches {	-- Summary LVH (left ventricular hypertrophy)
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0054, 	-- Normal
+									at0055, 	-- Moderate
+									at0056, 	-- Severe
+									at0057, 	-- Not assessable
+									at0125]	-- Not investigated
+								}
+							}
+						}
+					}
+					ELEMENT[at0014] occurrences matches {0..1} matches {	-- LA (left atrium diameter)
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::122]>
+								list = <
+									["1"] = <
+										units = <"mm">
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0028] occurrences matches {0..1} matches {	-- LV-EDD (Left ventricle end diastolic diameter)
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::122]>
+								list = <
+									["1"] = <
+										units = <"mm">
+										precision = <|0|>
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0029] occurrences matches {0..1} matches {	-- LV-ESD (Left ventricle end systolic diameter)
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::122]>
+								list = <
+									["1"] = <
+										units = <"mm">
+										precision = <|0|>
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0031] occurrences matches {0..1} matches {	-- LVPWd (Left ventricle posterior wall diastolic thickness)
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::122]>
+								list = <
+									["1"] = <
+										units = <"mm">
+										precision = <|0|>
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0032] occurrences matches {0..1} matches {	-- LVPWs (Left ventricle posterior wall systolic thickness)
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::122]>
+								list = <
+									["1"] = <
+										units = <"mm">
+										precision = <|0|>
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0033] occurrences matches {0..1} matches {	-- LV-FS (left ventricular shortening fraction)
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::380]>
+								list = <
+									["1"] = <
+										units = <"%">
+										precision = <|1|>
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0034] occurrences matches {0..1} matches {	-- LV-EF (Teichholz) (left ventricular ejection fraction measured by Teichholz method)
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::380]>
+								list = <
+									["1"] = <
+										units = <"%">
+										precision = <|1|>
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0035] occurrences matches {0..1} matches {	-- LV-EF (Simpson) (left ventricular ejection fraction measeurd by Simpson method)
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::380]>
+								list = <
+									["1"] = <
+										units = <"%">
+										precision = <|1|>
+									>
+								>
+							>
+						}
+					}
+					CLUSTER[at0060] occurrences matches {0..1} matches {	-- Regional wall motion disorders
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0064] occurrences matches {0..1} matches {	-- Regional wall motion disorders (LV (left ventricle)): summary
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0067, 	-- Regional akinesia
+											at0068, 	-- Hypokinesia
+											at0069, 	-- Not assessable
+											at0126]	-- Not investigated
+										}
+									}
+								}
+							}
+							ELEMENT[at0061] occurrences matches {0..1} matches {	-- Any Regional wall motion disorders (LV (left ventricle)
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0062, 	-- Yes
+											at0063]	-- No
+										}
+									}
+								}
+							}
+							ELEMENT[at0072] occurrences matches {0..1} matches {	-- Regional wall motion (LV (left ventricle)): Details
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+				}
+			}
+			CLUSTER[at0073] occurrences matches {0..1} matches {	-- Right
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0094] occurrences matches {0..1} matches {	-- RV-Dimension (right ventricle dimension)
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0095, 	-- Normal
+									at0096, 	-- Moderate dilated
+									at0097, 	-- Dilated
+									at0098, 	-- Not assessable
+									at0129]	-- Not investigated
+								}
+							}
+						}
+					}
+					ELEMENT[at0087] occurrences matches {0..1} matches {	-- RV-Function (right ventricle function)
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0088, 	-- Normal
+									at0089, 	-- Function reduced
+									at0090, 	-- Not assessable
+									at0128]	-- Not investigated
+								}
+							}
+						}
+					}
+					ELEMENT[at0080] occurrences matches {0..1} matches {	-- RV-Morphology (right ventricle morphology)
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0081, 	-- Normal
+									at0082, 	-- Hypertrophy
+									at0083, 	-- Not assessable
+									at0127]	-- Not investigated
+								}
+							}
+						}
+					}
+					ELEMENT[at0074] occurrences matches {0..1} matches {	-- RV-EDD (right ventricle end diastolic diameter)
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::122]>
+								list = <
+									["1"] = <
+										units = <"mm">
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0075] occurrences matches {0..1} matches {	-- RV-ESD (right ventricle end systolic diameter)
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::122]>
+								list = <
+									["1"] = <
+										units = <"mm">
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0076] occurrences matches {0..1} matches {	-- RV-TAPSE (right ventricle: Tricuspid annular plane systolic excursion)
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::125]>
+								list = <
+									["1"] = <
+										units = <"mm[Hg]">
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0077] occurrences matches {0..1} matches {	-- RV-Wall (right ventricle wall thickness)
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::122]>
+								list = <
+									["1"] = <
+										units = <"mm">
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0131] occurrences matches {0..1} matches {	-- RA (right atrium diameter
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::122]>
+								list = <
+									["1"] = <
+										units = <"mm">
+									>
+								>
+							>
+						}
+					}
+				}
+			}
+			allow_archetype CLUSTER[at0107] occurrences matches {0..*} matches {	-- Valve Condition
+				include
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.valve_condition(-[a-zA-Z0-9_]+)*\.v0/}
+			}
+			allow_archetype CLUSTER[at0130] occurrences matches {0..*} matches {	-- Exam not done
+				include
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.exclusion_exam(-[a-zA-Z0-9_]+)*\.v1/}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Echo cardiography">
+					description = <"unknown">
+				>
+				["at0005"] = <
+					text = <"Type of examination">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"TTE (trans-thoracic)">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"TEE (trans-oesophagal)">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"IVSd. (intraventricular septum diastolic thickness)">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"IVSs. (intraventricular septum systolic thickness)">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Visualisation ultrasound">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Normal">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Limited">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Severly Limited">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"LA (left atrium diameter)">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Aortic annulus (root)">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Ascending aorta">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Morphology of aorta">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Pericardial effusion">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Yes">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"No">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Not assessable">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Pericardial">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"Further measurements / remarks (e.g. suspicion of endocarditis, malformations (ASD/VSD))">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"Left">
+					description = <"*">
+				>
+				["at0028"] = <
+					text = <"LV-EDD (Left ventricle end diastolic diameter)">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"LV-ESD (Left ventricle end systolic diameter)">
+					description = <"*">
+				>
+				["at0031"] = <
+					text = <"LVPWd (Left ventricle posterior wall diastolic thickness)">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"LVPWs (Left ventricle posterior wall systolic thickness)">
+					description = <"*">
+				>
+				["at0033"] = <
+					text = <"LV-FS (left ventricular shortening fraction)">
+					description = <"*">
+				>
+				["at0034"] = <
+					text = <"LV-EF (Teichholz) (left ventricular ejection fraction measured by Teichholz method)">
+					description = <"*">
+				>
+				["at0035"] = <
+					text = <"LV-EF (Simpson) (left ventricular ejection fraction measeurd by Simpson method)">
+					description = <"*">
+				>
+				["at0037"] = <
+					text = <"Summary LVF diastolic  (diastolic left ventricular function)">
+					description = <"*">
+				>
+				["at0038"] = <
+					text = <"Normal">
+					description = <"*">
+				>
+				["at0039"] = <
+					text = <"Diastolic slightly impaired">
+					description = <"*">
+				>
+				["at0040"] = <
+					text = <"Diastolic dysfunction">
+					description = <"*">
+				>
+				["at0041"] = <
+					text = <"Not assessable">
+					description = <"*">
+				>
+				["at0045"] = <
+					text = <"Summary LVF systolic (systolic left ventricular function)">
+					description = <"*">
+				>
+				["at0046"] = <
+					text = <"Normal">
+					description = <"*">
+				>
+				["at0047"] = <
+					text = <"Moderately reduced">
+					description = <"*">
+				>
+				["at0048"] = <
+					text = <"Severly reduced">
+					description = <"*">
+				>
+				["at0049"] = <
+					text = <"Not assessable">
+					description = <"*">
+				>
+				["at0053"] = <
+					text = <"Summary LVH (left ventricular hypertrophy)">
+					description = <"*">
+				>
+				["at0054"] = <
+					text = <"Normal">
+					description = <"*">
+				>
+				["at0055"] = <
+					text = <"Moderate">
+					description = <"*">
+				>
+				["at0056"] = <
+					text = <"Severe">
+					description = <"*">
+				>
+				["at0057"] = <
+					text = <"Not assessable">
+					description = <"*">
+				>
+				["at0060"] = <
+					text = <"Regional wall motion disorders">
+					description = <"*">
+				>
+				["at0061"] = <
+					text = <"Any Regional wall motion disorders (LV (left ventricle)">
+					description = <"*">
+				>
+				["at0062"] = <
+					text = <"Yes">
+					description = <"*">
+				>
+				["at0063"] = <
+					text = <"No">
+					description = <"*">
+				>
+				["at0064"] = <
+					text = <"Regional wall motion disorders (LV (left ventricle)): summary">
+					description = <"*">
+				>
+				["at0067"] = <
+					text = <"Regional akinesia">
+					description = <"*">
+				>
+				["at0068"] = <
+					text = <"Hypokinesia">
+					description = <"*">
+				>
+				["at0069"] = <
+					text = <"Not assessable">
+					description = <"*">
+				>
+				["at0072"] = <
+					text = <"Regional wall motion (LV (left ventricle)): Details">
+					description = <"*">
+				>
+				["at0073"] = <
+					text = <"Right">
+					description = <"*">
+				>
+				["at0074"] = <
+					text = <"RV-EDD (right ventricle end diastolic diameter)">
+					description = <"*">
+				>
+				["at0075"] = <
+					text = <"RV-ESD (right ventricle end systolic diameter)">
+					description = <"*">
+				>
+				["at0076"] = <
+					text = <"RV-TAPSE (right ventricle: Tricuspid annular plane systolic excursion)">
+					description = <"*">
+				>
+				["at0077"] = <
+					text = <"RV-Wall (right ventricle wall thickness)">
+					description = <"*">
+				>
+				["at0080"] = <
+					text = <"RV-Morphology (right ventricle morphology)">
+					description = <"*">
+				>
+				["at0081"] = <
+					text = <"Normal">
+					description = <"*">
+				>
+				["at0082"] = <
+					text = <"Hypertrophy">
+					description = <"*">
+				>
+				["at0083"] = <
+					text = <"Not assessable">
+					description = <"*">
+				>
+				["at0087"] = <
+					text = <"RV-Function (right ventricle function)">
+					description = <"*">
+				>
+				["at0088"] = <
+					text = <"Normal">
+					description = <"*">
+				>
+				["at0089"] = <
+					text = <"Function reduced">
+					description = <"*">
+				>
+				["at0090"] = <
+					text = <"Not assessable">
+					description = <"*">
+				>
+				["at0094"] = <
+					text = <"RV-Dimension (right ventricle dimension)">
+					description = <"*">
+				>
+				["at0095"] = <
+					text = <"Normal">
+					description = <"*">
+				>
+				["at0096"] = <
+					text = <"Moderate dilated">
+					description = <"*">
+				>
+				["at0097"] = <
+					text = <"Dilated">
+					description = <"*">
+				>
+				["at0098"] = <
+					text = <"Not assessable">
+					description = <"*">
+				>
+				["at0107"] = <
+					text = <"Valve Condition">
+					description = <"*">
+				>
+				["at0114"] = <
+					text = <"Haemodynamics measurement">
+					description = <"*">
+				>
+				["at0115"] = <
+					text = <"Haemodynamics measurement at time of measurment available">
+					description = <"*">
+				>
+				["at0116"] = <
+					text = <"Yes">
+					description = <"*">
+				>
+				["at0117"] = <
+					text = <"No">
+					description = <"*">
+				>
+				["at0118"] = <
+					text = <"Mean arterial blood pressure (MAP)">
+					description = <"*">
+				>
+				["at0119"] = <
+					text = <"Heartrate">
+					description = <"*">
+				>
+				["at0120"] = <
+					text = <"Central venous pressure (CVP)">
+					description = <"*">
+				>
+				["at0121"] = <
+					text = <"Not investigated">
+					description = <"*">
+				>
+				["at0122"] = <
+					text = <"Thickness">
+					description = <"*">
+				>
+				["at0123"] = <
+					text = <"Not investigated">
+					description = <"*">
+				>
+				["at0124"] = <
+					text = <"Not investigated">
+					description = <"*">
+				>
+				["at0125"] = <
+					text = <"Not investigated">
+					description = <"*">
+				>
+				["at0126"] = <
+					text = <"Not investigated">
+					description = <"*">
+				>
+				["at0127"] = <
+					text = <"Not investigated">
+					description = <"*">
+				>
+				["at0128"] = <
+					text = <"Not investigated">
+					description = <"*">
+				>
+				["at0129"] = <
+					text = <"Not investigated">
+					description = <"*">
+				>
+				["at0130"] = <
+					text = <"Exam not done">
+					description = <"*">
+				>
+				["at0131"] = <
+					text = <"RA (right atrium diameter">
+					description = <"*">
+				>
+			>
+		>
+	>

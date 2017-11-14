@@ -1,0 +1,162 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.dialysis_therapy.v0
+
+concept
+	[at0000]	-- Dialysis Therapy
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Bert Verhees">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To register if a recipient is currently under dialysis.  (Renal replacement therapy)">
+			use = <"From ENIS
+If the recipient is on dialysis, enter the information concerning the dialysis, such as Dialysis
+Center, the address and country and the name and number of the Physician of the recipient.
+When the recipient is not on dialysis, enter the value „ND‟ (Recipient not on dialysis) in the
+field „Technique‟. After this the „Date of (Re) Institution of Dialysis‟ will automatically change
+to not-enterable.
+Note: if the Date of (re)Institution of Dialyses is more than 3 years prior tot the registration
+date a promt appears: \"Recipient on dialysis more then 3 years, are you sure?\"
+
+">
+			misuse = <"Not to used for register other dialysis like Molucular Adsorbent Recirculation System therapy (liver dialysis).">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"AFC44FD28BE4300F88C9AAE9F8570D97">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Dialysis Therapy
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0009] occurrences matches {0..1} matches {	-- Status
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0010, 	-- D
+							at0011]	-- ND
+						}
+					}
+				}
+			}
+			CLUSTER[at0016] occurrences matches {0..*} matches {	-- Dialysis period
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0018] occurrences matches {0..1} matches {	-- Location of Dialysis therapy
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0017] occurrences matches {0..1} matches {	-- Treating phycisian
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0015] occurrences matches {0..1} matches {	-- Frequency
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::128]>
+								list = <
+									["1"] = <
+										units = <"wk">
+										magnitude = <|1.0..7.0|>
+										precision = <|0|>
+									>
+									["2"] = <
+										units = <"mo">
+										magnitude = <|0.0..31.0|>
+										precision = <|0|>
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- Technique
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0004, 	-- HD
+									at0005, 	-- HHD
+									at0006, 	-- IPD
+									at0007, 	-- PD
+									at0008]	-- TU
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Dialysis Therapy">
+					description = <"Registration of the Dialysis Therapy including the start, technique and location">
+				>
+				["at0003"] = <
+					text = <"Technique">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"HD">
+					description = <"Haemodialysis">
+				>
+				["at0005"] = <
+					text = <"HHD">
+					description = <"Home Haemodialysis">
+				>
+				["at0006"] = <
+					text = <"IPD">
+					description = <"Intermittent Peritoneal Dialysis">
+				>
+				["at0007"] = <
+					text = <"PD">
+					description = <"Peritoneal Dialysis (CAPD, APD, CCPD)">
+				>
+				["at0008"] = <
+					text = <"TU">
+					description = <"Technique unknown">
+				>
+				["at0009"] = <
+					text = <"Status">
+					description = <"Indication wheter the recipient is on Dialysis or not.">
+				>
+				["at0010"] = <
+					text = <"D">
+					description = <"Recipient on Dialysis">
+				>
+				["at0011"] = <
+					text = <"ND">
+					description = <"Recipient not on Dialysis">
+				>
+				["at0015"] = <
+					text = <"Frequency">
+					description = <"Frequency">
+				>
+				["at0016"] = <
+					text = <"Dialysis period">
+					description = <"Detailed description about the Dialysis period specific the Frequency/ week, Begin/End date and Dialysis technique.">
+				>
+				["at0017"] = <
+					text = <"Treating phycisian">
+					description = <"Treating phycisian responsible for the Dialysis therapy of the recipient.">
+				>
+				["at0018"] = <
+					text = <"Location of Dialysis therapy">
+					description = <"Location of the Dialysis therapy">
+				>
+			>
+		>
+	>

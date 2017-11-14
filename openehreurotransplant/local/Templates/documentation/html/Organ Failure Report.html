@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en" dir="ltr" xmlns="http://www.w3.org/1999/xhtml"><head><title>Organ Failure Report</title><meta http-equiv="Content-Language" content="en" /><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link rel="stylesheet" type="text/css" href="file:///C:/Program%20Files%20(x86)/Ocean%20Informatics/Template%20Designer/Html/css/clickabletree.css" /><script type="text/javascript">                   
+       <!--
+           function toggleList(id)
+           {
+               elem = document.getElementById(id);
+               elem.style.display == 'none' ? elem.style.display = 'block' : elem.style.display='none';
+           }
+           function toggleExpandAll(topId)
+           {
+               var elem = document.getElementById(topId+"_ExpandAll")
+               elem.innerHTML == "Expand All" ? elem.innerHTML = "Collapse All" : elem.innerHTML = "Expand All"
+               var topelem = document.getElementById(topId+"_treeRoot")                         
+               var elems = topelem.getElementsByTagName("div")
+               for(i=0;i<=elems.length-1;i++)
+               {
+                   if(elems[i].className == "expandable")
+                   {
+                         //   elems[i].style.display == "none" ? elems[i].style.display = "block" : elems[i].style.display = "none"
+                    // We changed it already
+                    elem.innerHTML == "Collapse All" ? elems[i].style.display = "block" : elems[i].style.display = "none"                
+                   }
+               }
+           }
+           function toggleAnnotations(topId)
+           {
+               var elem = document.getElementById(topId+"_annotationCommand")
+               elem.innerHTML == "Show Annotations" ? elem.innerHTML = "Hide Annotations" : elem.innerHTML = "Show Annotations"
+               var topelem = document.getElementById(topId+"_treeRoot")                         
+               var elems = topelem.getElementsByTagName("div")
+               for (i=0;i<=elems.length-1;i++)
+               {
+                   if(elems[i].className == "annotation")
+                   {
+		                //We changed the elem already
+                       elem.innerHTML == "Hide Annotations" ? elems[i].style.display = "block" : elems[i].style.display = "none";
+                   }
+               }
+           }
+       -->
+       </script></head><body class="clickabletree"><div id="_top"><h1 class="clickabletree bordered-title">Organ Failure Report</h1><div id="information"><h2 class="clickabletree">Purpose</h2><p class="clickabletree" id="purpose"><img src="file:///C:/Program%20Files%20(x86)/Ocean%20Informatics/Template%20Designer/Html/pics/menu/information.png" alt="information" />To record organ failure of a transplanted organ graft</p></div></div><div class="description"><table class="section"><tr><td class="clickabletree sectionHead">Archetype ID</td><td class="clickabletree sectionBody">openEHR-EHR-COMPOSITION.report.v1</td></tr><tr><td class="clickabletree sectionHead">Template ID</td><td class="clickabletree sectionBody">6e8ab7db-6e7a-475e-9ec0-61b691ab2bec</td></tr><tr><td class="clickabletree sectionHead">MetaDataSet:Sample Set </td><td class="clickabletree sectionBody">Template metadata sample set </td></tr></table></div><div class="treeRoot" id="_treeRoot"><h1 class="clickabletree"><img class="image" src="file:///C:/Program%20Files%20(x86)/Ocean%20Informatics/Template%20Designer/Html/pics/archetypes/small/composition.png" align="middle" alt="COMPOSITION" />Organ Failure Report</h1><a id="_ExpandAll" class="clickabletree ExpandAllLink" href="javascript:toggleExpandAll('')">Collapse All</a>   
+				<a id="_annotationCommand" class="clickabletree" href="javascript:toggleAnnotations('')">Show Annotations</a><div style="border: 1px solid #ACACAC; margin-right:0.25cm; margin-bottom: 0.15cm; padding-bottom:0.25cm;  display:block; "><div id="context_node" style="margin-left:0.5cm;"><p class="clickabletree"><a class="clickabletree" href="javascript:toggleList('s_1')">[+/-]</a><span>other_context [1]</span></p><div id="s_1" class="expandable" style="display:block; margin-left:0.5cm;"><p class="clickabletree"><img class="image" src="file:///C:/Program%20Files%20(x86)/Ocean%20Informatics/Template%20Designer/Html/pics/archetypes/datatypes/small/text.png" align="middle" alt="ELEMENT" /><span title="Identification information about the report.">Report ID
+				<font color="#C0C0C0">
+				</font>  <textarea rows="1" cols="15" style="vertical-align: top;" name="Report IDat0002"> </textarea></span></p><p class="clickabletree"><img class="image" src="file:///C:/Program%20Files%20(x86)/Ocean%20Informatics/Template%20Designer/Html/pics/archetypes/datatypes/small/text.png" align="middle" alt="ELEMENT" /><span title="The status of the entire report. Note: This is not the status of any of the report components.">Status
+				<font color="#C0C0C0">
+				</font>  <textarea rows="1" cols="15" style="vertical-align: top;" name="Statusat0005"> </textarea></span></p></div><!--1--></div><div style="margin-left:0.05cm;" id="root1"><h3 class="clickabletree"><a class="clickabletree" href="javascript:toggleList('s_1.1')">[+/-]</a><img class="image" src="file:///C:/Program%20Files%20(x86)/Ocean%20Informatics/Template%20Designer/Html/pics/archetypes/small/evaluation.png" align="middle" alt="EVALUATION" /><span title="Details about a single identified health condition, injury, disability or any other issue which impacts on the physical, mental and/or social well-being of an individual.">Organ Failure
+				<font color="#C0C0C0">
+				</font></span></h3><div id="s_1.1" class="expandable" style="border: 1px solid #ACACAC; margin-right:0.25cm; margin-bottom: 0.25cm; padding-bottom:0.25cm;  display:block; margin-left:0.6cm; padding-left:0.25cm; "><p class="clickabletree"><a class="clickabletree" href="javascript:toggleList('s_1.1.1.1')">[+/-]</a><span title="@ internal @">data [1]
+							</span></p><div id="s_1.1.1.1" class="expandable" style=" display:block; margin-left:0.6cm; padding-left:0.25cm; "><p class="clickabletree"><img class="image" src="file:///C:/Program%20Files%20(x86)/Ocean%20Informatics/Template%20Designer/Html/pics/archetypes/datatypes/small/text.png" align="middle" alt="ELEMENT" /><span title="Identification of the problem or diagnosis, by name.">Cause of failure
+				<font color="#C0C0C0"> [1] 
+				</font>  <textarea rows="1" cols="15" style="vertical-align: top;" name="Cause of failureat0002"> </textarea></span></p><p class="clickabletree"><img class="image" src="file:///C:/Program%20Files%20(x86)/Ocean%20Informatics/Template%20Designer/Html/pics/archetypes/datatypes/small/text.png" align="middle" alt="ELEMENT" /><span title="Identification of a simple body site for the location of the problem or diagnosis.">Body site
+				<font color="#C0C0C0">
+				</font>  <textarea rows="1" cols="15" style="vertical-align: top;" name="Body siteat0012"> </textarea></span></p><p class="clickabletree"><a class="clickabletree" href="javascript:toggleList('s_1.1.1.1.3')">[+/-]</a><img class="image" src="file:///C:/Program%20Files%20(x86)/Ocean%20Informatics/Template%20Designer/Html/pics/archetypes/datatypes/small/cluster.png" align="middle" alt="CLUSTER" /><span title="unknown">Organ failure detail
+				<font color="#C0C0C0">
+				</font></span></p><div id="s_1.1.1.1.3" class="expandable" style="border: 1px solid #E0E0E0; display:block; margin-left: 0.8cm; padding-left: 0.3cm; margin-top: 0.15cm; padding-bottom: 0.25cm; margin-right: 0.25cm; margin-bottom: 0.05cm; "><p class="clickabletree"><img class="image" src="file:///C:/Program%20Files%20(x86)/Ocean%20Informatics/Template%20Designer/Html/pics/archetypes/datatypes/small/id.png" align="middle" alt="ELEMENT" /><span title="Graft ID derived from CORE">Graft ID
+				<font color="#C0C0C0"> [1] 
+				</font>  </span></p><p class="clickabletree"><img class="image" src="file:///C:/Program%20Files%20(x86)/Ocean%20Informatics/Template%20Designer/Html/pics/archetypes/datatypes/small/id.png" align="middle" alt="ELEMENT" /><span title="Transplantation id as used in ENIS to idetify the graft.">Transplant ID
+				<font color="#C0C0C0"> [1] 
+				</font>  </span></p><p class="clickabletree"><img class="image" src="file:///C:/Program%20Files%20(x86)/Ocean%20Informatics/Template%20Designer/Html/pics/archetypes/datatypes/small/datetime.png" align="middle" alt="ELEMENT" /><span title="Date/time of start explantation of the transplanted graft after organ failue.">Date/Time start of explantation
+				<font color="#C0C0C0">
+				</font>  <input size="9" name="Date/Time start of explantationat0005" value="9/27/2017" /></span></p><p class="clickabletree"><img class="image" src="file:///C:/Program%20Files%20(x86)/Ocean%20Informatics/Template%20Designer/Html/pics/archetypes/datatypes/small/text.png" align="middle" alt="ELEMENT" /><span title="Detailed body site in case of splitting or left or right kidney">Graft site detail
+				<font color="#C0C0C0">
+				</font>  <select size="1" name="Graft site detailat0006"><option>Left</option><option>Right</option><option>Extended right Lobe Liver</option><option>Left lateral segment Liver</option><option>Left lobe liver</option><option>Right lobe liver</option><option>Islets</option></select></span></p></div><!--1.1.1.1.3--><p class="clickabletree"><img class="image" src="file:///C:/Program%20Files%20(x86)/Ocean%20Informatics/Template%20Designer/Html/pics/archetypes/datatypes/small/datetime.png" align="middle" alt="ELEMENT" /><span title="Estimated or actual date/time that signs or symptoms of the problem/diagnosis were first observed.">Date/Time of graft failure
+				<font color="#C0C0C0">
+				</font>  <input size="9" name="Date/Time of graft failureat0077" value="9/27/2017" /></span></p><!--keeps this div not empty--></div><!--s1.1.1.1--><p class="clickabletree"><a class="clickabletree" href="javascript:toggleList('s_1.1.2.1')">[+/-]</a><span title="@ internal @">protocol [1]
+							</span></p><div id="s_1.1.2.1" class="expandable" style=" display:block; margin-left:0.6cm; padding-left:0.25cm; "><!--keeps this div not empty--></div><!--s1.1.2.1--><!--keeps this div not empty--></div><!--s1.1--></div><!--keeps this div not empty--></div></div></body></html><!--HTML automatically generated by Operational Template To HTML Tree transform v1.2 (26 March 2010).-->

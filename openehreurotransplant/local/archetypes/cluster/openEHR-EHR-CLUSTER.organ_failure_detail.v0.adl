@@ -1,0 +1,133 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.organ_failure_detail.v0
+
+concept
+	[at0000]	-- Organ failure detail
+language
+	original_language = <[ISO_639-1::nl]>
+description
+	original_author = <
+		["name"] = <"Wouter Zanen">
+		["email"] = <"w.zanen@eurotransplant.org">
+		["organisation"] = <"Eurotransplant">
+	>
+	details = <
+		["nl"] = <
+			language = <[ISO_639-1::nl]>
+			purpose = <"Purpose:
+To record organ failure after transplant. Report 1 failed grafts. Graft-id is the internal Eurotransplant graft id.
+
+">
+			use = <"To record graft failure after transplantation of a graft or multiple grafts. One should filter \"cause of failure\" reasons to reflect the selected failed graft organ types. Expected to be used with the Problem Diagnosis archetype in the Specific details slot as part of an Organ Failure report template. 
+
+Graft ID should be provided which is derived from CORE
+Transplantation ID needs to be provided as long as the ENIS system is being synchronised
+Explantation date should be entered if the explanted organ was explanted because of organ failure">
+			misuse = <"Reporting of organ failure not related to a transplanted graft. Date of explantation should not be entered if the organ was removed to be retransplanted in a different recipient (domino). ">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"B96D2087BBCE6C546F4395354FE6B915">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Organ failure detail
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0002] matches {	-- Graft ID
+				value matches {
+					DV_IDENTIFIER matches {
+						issuer matches {/Eurotransplant/}
+						type matches {/CORE graft ID/}
+					}
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {	-- Transplant ID
+				value matches {
+					DV_IDENTIFIER matches {
+						issuer matches {/Eurotransplant/}
+						type matches {/ENIS Transplant ID/}
+					}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {	-- Date/Time start of explantation
+				value matches {
+					DV_DATE matches {*}
+				}
+			}
+			ELEMENT[at0006] occurrences matches {0..1} matches {	-- Graft site detail
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0019, 	-- Left
+							at0020, 	-- Right
+							at0021, 	-- Extended right Lobe Liver
+							at0022, 	-- Left lateral segment Liver
+							at0023, 	-- Left lobe liver
+							at0024, 	-- Right lobe liver
+							at0025]	-- Islets
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["nl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Organ failure detail">
+					description = <"unknown">
+				>
+				["at0002"] = <
+					text = <"Graft ID">
+					description = <"Graft ID derived from CORE">
+				>
+				["at0003"] = <
+					text = <"Transplant ID">
+					description = <"Transplantation id as used in ENIS to idetify the graft.">
+				>
+				["at0005"] = <
+					text = <"Date/Time start of explantation">
+					description = <"Date/time of start explantation of the transplanted graft after organ failue.">
+				>
+				["at0006"] = <
+					text = <"Graft site detail">
+					description = <"Detailed body site in case of splitting or left or right kidney">
+				>
+				["at0019"] = <
+					text = <"Left">
+					description = <"Left segment of the graft (used for Kidney and Lung">
+				>
+				["at0020"] = <
+					text = <"Right">
+					description = <"Right segment of the graft (used for Kidney and Lung)">
+				>
+				["at0021"] = <
+					text = <"Extended right Lobe Liver">
+					description = <"Extended right Lobe Liver">
+				>
+				["at0022"] = <
+					text = <"Left lateral segment Liver">
+					description = <"Left lateral segment Liver">
+				>
+				["at0023"] = <
+					text = <"Left lobe liver">
+					description = <"Left lobe liver">
+				>
+				["at0024"] = <
+					text = <"Right lobe liver">
+					description = <"Right lobe liver">
+				>
+				["at0025"] = <
+					text = <"Islets">
+					description = <"Pancreas Islets ">
+				>
+			>
+		>
+	>

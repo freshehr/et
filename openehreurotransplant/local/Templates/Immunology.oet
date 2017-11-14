@@ -1,0 +1,256 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>b022f815-e342-4633-9ba5-7a214fd0a293</id>
+  <name>Immunology</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.report-result.v1" concept_name="Result Report" name="Immunological Report">
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0" concept_name="Laboratory test" max="1" path="/content" name="Laboratory test Histoimmunogenetic typing">
+      <Rule path="/data[at0001]/events[at0002]" max="1" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" default="HLA" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0073]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0075]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0077]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0100]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]" max="0" />
+      <Rule path="/protocol[at0004]/items[at0068]" max="0" />
+      <Rule path="/protocol[at0004]/items[at0094]" max="0" />
+      <Rule path="/protocol[at0004]/items[at0111]" max="0" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.specimen.v0" concept_name="Specimen" max="1" min="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0065]">
+        <Rule path="/items[at0029]" max="0" />
+        <Rule path="/items[at0015]" min="1" />
+        <Rule path="/items[at0008]" max="0" />
+        <Rule path="/items[at0007]" max="0" />
+        <Rule path="/items[at0079]" max="0" />
+        <Rule path="/items[at0005]" max="0" />
+        <Rule path="/items[at0067]" max="0" />
+        <Rule path="/items[at0070]" max="0" />
+        <Rule path="/items[at0080]" max="0" />
+        <Rule path="/items[at0039]" max="0" />
+        <Rule path="/items[at0046]/items[at0034]" max="0" />
+        <Rule path="/items[at0081]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.histoimmunogenetic_typing.v0" concept_name="Histoimmunogenetic typing" max="1" min="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0007]/items[at0022]" max="0" />
+        <Rule path="/items[at0007]/items[at0026]" max="0" />
+        <Rule path="/items[at0007]/items[at0027]" max="0" />
+        <Rule path="/items[at0007]/items[at0029]" max="0" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.antigen.v0" concept_name="Antigen" max="1" min="1" path="/items[at0007]/items[at0037]/items[at0035]">
+          <Rule path="/items[at0011]" min="1" />
+        </Items>
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.hla_phenotype.v0" concept_name="Hla phenotype" max="1" path="/items[at0038]" name="Recipient Full match phenotype">
+          <Rule path="/items[at0001]">
+            <constraint xsi:type="textConstraint">
+              <excludedValues>local::at0003</excludedValues>
+              <excludedValues>local::at0004</excludedValues>
+              <excludedValues>local::at0005</excludedValues>
+            </constraint>
+          </Rule>
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.antigen.v0" concept_name="Antigen" max="1" min="1" path="/items[at0007]/items[at0008]">
+            <Rule path="/items[at0011]" max="0" />
+          </Items>
+        </Items>
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.hla_phenotype.v0" concept_name="Hla phenotype" max="1" path="/items[at0038]" name="Recipient Reduced match phenotype">
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.antigen.v0" concept_name="Antigen" max="1" min="1" path="/items[at0007]/items[at0008]">
+            <Rule path="/items[at0011]" max="0" />
+          </Items>
+        </Items>
+      </Items>
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0" concept_name="Laboratory test" max="1" path="/content" name="Laboratory test Immunological Screening">
+      <Rule path="/data[at0001]/events[at0002]" max="1" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" default="Immunological Screening" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0073]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0075]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0077]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0100]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]" max="0" />
+      <Rule path="/protocol[at0004]/items[at0068]" max="0" />
+      <Rule path="/protocol[at0004]/items[at0094]" max="0" />
+      <Rule path="/protocol[at0004]/items[at0111]" max="0" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.specimen.v0" concept_name="Specimen" max="1" min="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0065]">
+        <Rule path="/items[at0029]" max="0" />
+        <Rule path="/items[at0015]" min="1" />
+        <Rule path="/items[at0008]" max="0" />
+        <Rule path="/items[at0007]" max="0" />
+        <Rule path="/items[at0079]" max="0" />
+        <Rule path="/items[at0005]" max="0" />
+        <Rule path="/items[at0067]" max="0" />
+        <Rule path="/items[at0070]" max="0" />
+        <Rule path="/items[at0080]" max="0" />
+        <Rule path="/items[at0039]" max="0" />
+        <Rule path="/items[at0046]/items[at0034]" max="0" />
+        <Rule path="/items[at0081]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.immunological_screening.v0" concept_name="Immunological_screening" max="1" min="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0035]">
+          <constraint xsi:type="textConstraint">
+            <excludedValues>local::at0067</excludedValues>
+          </constraint>
+        </Rule>
+        <Rule path="/items[at0130]/items[at0142]" max="0" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.antigen.v0" concept_name="Antigen" max="1" min="1" path="/items[at0003]/items[at0123]">
+          <Rule path="/items[at0011]" max="0" />
+        </Items>
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.antigen.v0" concept_name="Antigen" max="1" min="1" path="/items[at0130]/items[at0126]">
+          <Rule path="/items[at0011]" max="0" />
+        </Items>
+      </Items>
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0" concept_name="Laboratory test" max="1" path="/content" name="Laboratory test Match Unacceptables">
+      <Rule path="/data[at0001]/events[at0002]" max="1" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" default="Match Unacceptables" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0073]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0075]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0077]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0100]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]" max="0" />
+      <Rule path="/protocol[at0004]/items[at0068]" max="0" />
+      <Rule path="/protocol[at0004]/items[at0094]" max="0" />
+      <Rule path="/protocol[at0004]/items[at0111]" max="0" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.immunological_match_unacceptables.v0" concept_name="Immunological Match Unacceptables" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Rule path="/items[at0129]/items[at0108]" max="0" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.antigen.v0" concept_name="Antigen" path="/items[at0129]/items[at0125]">
+          <Rule path="/items[at0011]" max="0" />
+        </Items>
+      </Items>
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0" concept_name="Laboratory test" max="1" path="/content" name="Laboratory test Cumulative Antibodies">
+      <Rule path="/data[at0001]/events[at0002]" max="1" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" default="Cumulative Antibodies" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0073]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0075]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0077]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0100]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]" max="0" />
+      <Rule path="/protocol[at0004]/items[at0068]" max="0" />
+      <Rule path="/protocol[at0004]/items[at0094]" max="0" />
+      <Rule path="/protocol[at0004]/items[at0111]" max="0" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.immunological_cumulative_antibodies.v0" concept_name="Immunological Cumulative Antibodies" max="1" min="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]">
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.antigen.v0" concept_name="Antigen" path="/items[at0129]/items[at0125]">
+          <Rule path="/items[at0011]" max="0" />
+        </Items>
+      </Items>
+    </Content>
+    <Content xsi:type="INSTRUCTION" archetype_id="openEHR-EHR-INSTRUCTION.immunological_recipient_remark.v0" concept_name="Immunological recipient remark" max="1" path="/content">
+      <Rule path="/activities[at0001]/description[at0002]/items[at0006]" max="0" />
+    </Content>
+    <Context>
+      <Rule path="/context/other_context[at0001]/items[at0002]" max="0" />
+      <Rule path="/context/other_context[at0001]/items[at0005]" max="0" />
+    </Context>
+  </definition>
+  <view>
+    <constraints path="[openEHR-EHR-COMPOSITION.report-result.v1]/content[openEHR-EHR-OBSERVATION.laboratory_test.v0]/provider">
+      <items id="VisibleInView">
+        <value>Laboratory</value>
+      </items>
+    </constraints>
+    <constraints path="[openEHR-EHR-COMPOSITION.report-result.v1]/content[openEHR-EHR-OBSERVATION.laboratory_test.v0 and name/value='Laboratory test Histoimmunogenetic typing']/data[at0001]/events[at0002]/time">
+      <items id="VisibleInView">
+        <value>time</value>
+      </items>
+    </constraints>
+    <constraints path="[openEHR-EHR-COMPOSITION.report-result.v1]/content[openEHR-EHR-OBSERVATION.laboratory_test.v0 and name/value='Laboratory test Immunological Screening']/data[at0001]/events[at0002]/time">
+      <items id="VisibleInView">
+        <value>time</value>
+      </items>
+    </constraints>
+    <constraints path="[openEHR-EHR-COMPOSITION.report-result.v1]/content[openEHR-EHR-OBSERVATION.laboratory_test.v0 and name/value='Laboratory test Histoimmunogenetic typing']/provider">
+      <items id="VisibleInView">
+        <value>provider</value>
+      </items>
+    </constraints>
+    <constraints path="[openEHR-EHR-COMPOSITION.report-result.v1]/content[openEHR-EHR-OBSERVATION.laboratory_test.v0 and name/value='Laboratory test Immunological Screening']/provider">
+      <items id="VisibleInView">
+        <value>provider</value>
+      </items>
+    </constraints>
+    <constraints path="[openEHR-EHR-COMPOSITION.report-result.v1]/content[openEHR-EHR-OBSERVATION.laboratory_test.v0 and name/value='Laboratory test Immunological Screening']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.immunological_screening.v0]/items[at0054]/feeder_audit">
+      <items id="VisibleInView">
+        <value>feeder_audit</value>
+      </items>
+    </constraints>
+    <constraints path="[openEHR-EHR-COMPOSITION.report-result.v1]/content[openEHR-EHR-INSTRUCTION.immunological_recipient_remark.v0]/narrative">
+      <items id="VisibleInView">
+        <value>narrative</value>
+      </items>
+    </constraints>
+    <constraints path="[openEHR-EHR-COMPOSITION.report-result.v1]/content[openEHR-EHR-INSTRUCTION.immunological_recipient_remark.v0]/activities[at0001]/timing">
+      <items id="VisibleInView">
+        <value>timing</value>
+      </items>
+    </constraints>
+  </view>
+</template>

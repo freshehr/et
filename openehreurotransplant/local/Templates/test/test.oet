@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>f77b6c71-6da3-4b0c-b247-edefae3ee20c</id>
+  <name>test</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.report-result.v1" concept_name="Result Report">
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.pathology_test-blood_glucose.v1" concept_name="Blood Glucose Test Result" path="/content">
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0095]/items[at0096]/items[at0102]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0095]/items[at0096]/items[at0103]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0095]/items[at0096]/items[at0108]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0.8]/items[at0.9]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0.8]/items[at0.11]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0.8]/items[at0.13]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0.8]/items[at0.14]" max="0" />
+      <Rule path="/data[at0001]/events[at0.2]" max="0" />
+      <Rule path="/data[at0001]/events[at0.3]" max="0" />
+      <Rule path="/data[at0001]/events[at0.5]" max="0" />
+      <Rule path="/data[at0001]/events[at0.6]" max="0" />
+      <Rule path="/data[at0001]/events[at0.7]" max="0" />
+      <Rule path="/protocol[at0004]/items[at0.12]" max="0" />
+      <Rule path="/protocol[at0004]/items[at0.15]" max="0" />
+      <Rule path="/protocol[at0004]/items[at0094]" max="0" />
+    </Content>
+    <Context />
+  </definition>
+</template>

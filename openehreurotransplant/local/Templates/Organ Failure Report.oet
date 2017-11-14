@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>6e8ab7db-6e7a-475e-9ec0-61b691ab2bec</id>
+  <name>Organ Failure Report</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>To record organ failure of a transplanted organ graft</purpose>
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.report.v1" concept_name="Report" name="Organ Failure Report">
+    <Content xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1" concept_name="Problem/Diagnosis" max="1" path="/content" name="Organ Failure">
+      <Rule path="/data[at0001]/items[at0002]" name="Cause of failure" />
+      <Rule path="/data[at0001]/items[at0009]" max="0" />
+      <Rule path="/data[at0001]/items[at0012]" max="1">
+        <constraint xsi:type="textConstraint">
+          <includedValues>Kidney</includedValues>
+          <includedValues>Pancreas</includedValues>
+          <includedValues>Liver</includedValues>
+          <includedValues>Intestine</includedValues>
+          <includedValues>Heart</includedValues>
+          <includedValues>Lung</includedValues>
+          <includedValues>Vascularized composite tissue	
+Stomach</includedValues>
+          <includedValues>Other Organ</includedValues>
+        </constraint>
+      </Rule>
+      <Rule path="/data[at0001]/items[at0077]" min="1" name="Date/Time of graft failure" />
+      <Rule path="/data[at0001]/items[at0003]" max="0" />
+      <Rule path="/data[at0001]/items[at0005]" max="0" />
+      <Rule path="/data[at0001]/items[at0072]" max="0" />
+      <Rule path="/data[at0001]/items[at0030]" max="0" />
+      <Rule path="/data[at0001]/items[at0073]" max="0" />
+      <Rule path="/data[at0001]/items[at0069]" max="0" />
+      <Rule path="/protocol[at0032]/items[at0070]" max="0" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.organ_failure_detail.v0" concept_name="Organ failure detail" max="1" path="/data[at0001]/items[at0039]">
+        <Rule path="/items[at0003]" min="1" />
+      </Items>
+    </Content>
+    <Context />
+  </definition>
+</template>

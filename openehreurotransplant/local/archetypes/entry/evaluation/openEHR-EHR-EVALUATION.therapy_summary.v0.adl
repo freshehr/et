@@ -1,0 +1,112 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.therapy_summary.v0
+
+concept
+	[at0000]	-- Therapy summary
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Used to record a summary of a specific or multiple therapies">
+			use = <"Used for an overview of therapies over time">
+			misuse = <"Not to be used for details of the therapie (dosage, kind of treatment). Use the slot Therapie details for this.">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"886851977942EBB0EA98F4BD75DF6F48">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Therapy summary
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0002] matches {	-- Therapy name
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0015] occurrences matches {0..1} matches {	-- Start date
+						value matches {
+							DV_DATE matches {*}
+						}
+					}
+					ELEMENT[at0016] occurrences matches {0..1} matches {	-- Stop date
+						value matches {
+							DV_DATE matches {*}
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- Body site
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0006] occurrences matches {0..*} matches {	-- Therapy details
+						include
+							archetype_id/value matches {/.*/}
+					}
+					allow_archetype CLUSTER[at0004] occurrences matches {0..*} matches {	-- Additional data
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Therapy summary">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Therapy name">
+					description = <"Name of the therapy or other therapeutic items.">
+				>
+				["at0003"] = <
+					text = <"Body site">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Additional data">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Comment">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Therapy details">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Start date">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Stop date">
+					description = <"*">
+				>
+			>
+		>
+	>

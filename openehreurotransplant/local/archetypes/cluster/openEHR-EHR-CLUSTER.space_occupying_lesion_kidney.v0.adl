@@ -1,0 +1,85 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.space_occupying_lesion_kidney.v0
+
+concept
+	[at0000]	-- Space occupying lesion kidney
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"1E18ECF675F59F3441D3E3BCAA28A1D8">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Space occupying lesion kidney
+		items cardinality matches {1..2; unordered} matches {
+			ELEMENT[at0006] occurrences matches {0..1} matches {	-- Location
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0007, 	-- Upper pole
+							at0008, 	-- Middle section
+							at0009, 	-- Lower pole
+							at0010]	-- Multiple locations
+						}
+					}
+				}
+			}
+			ELEMENT[at0011] occurrences matches {0..1} matches {	-- Comment
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Space occupying lesion kidney">
+					description = <"unknown">
+				>
+				["at0006"] = <
+					text = <"Location">
+					description = <"Location of Lesion">
+				>
+				["at0007"] = <
+					text = <"Upper pole">
+					description = <"Upper pole Kidney">
+				>
+				["at0008"] = <
+					text = <"Middle section">
+					description = <"Middle section">
+				>
+				["at0009"] = <
+					text = <"Lower pole">
+					description = <"Lower pole">
+				>
+				["at0010"] = <
+					text = <"Multiple locations">
+					description = <"Multiple lesions in multiple locations">
+				>
+				["at0011"] = <
+					text = <"Comment">
+					description = <"*">
+				>
+			>
+		>
+	>

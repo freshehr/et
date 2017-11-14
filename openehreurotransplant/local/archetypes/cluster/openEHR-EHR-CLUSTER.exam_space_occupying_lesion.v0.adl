@@ -1,0 +1,130 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.exam_space_occupying_lesion.v0
+
+concept
+	[at0000]	-- Space occupying lesion
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Bert Verhees">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Archetype to register presence and type of space occupying lesions in various organs.
+This archetype is used in the context of Eurotransplant.">
+			use = <"The archetype must be used in slots in other archetypes of Eurotransplant.
+These archetypes are:
+openEHR-EHR-CLUSTER.exam_gall_bladder_and_bile_duct.v0.adl
+openEHR-EHR-CLUSTER.exam_kidney.v0.adl
+openEHR-EHR-CLUSTER.exam_pancreas.v0.adl
+openEHR-EHR-CLUSTER.exam_liver.v0.adl
+
+Regarding Space Occupying Lesion-cluster:
+It contains inside this cluster a Status-item and a CodedText with the same name as the cluster.
+The status item (also coded text) contains only one item: \"Not investigated\", it is optional, as also is the other coded text. Because the archetype model, currently, does not support dependent conditions, it must be used in this way:
+- It is important to understand the following: 
+Like a business-rule following must be noted: A coded text must be used if the status-item is not used. On the other hand, if the status-item (\"Not investigated\") is used, the other coded text in the same cluster will be ignored by the software.
+
+There is also \"Lesion Type\", a list of values, which lists most commonly used lesion-types, and it contains a free text, which can be used for any remark in this context.
+
+When one or both are used, the Space Occupying Lesion-cluster must not have used the status-item (\"Not investigated\") and it must have the list of values in the other item of this cluster set to \"Yes\"
+">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"055543076C47750A7D8FCE447E6BC08B">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Space occupying lesion
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0002] matches {	-- Lesion Type
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0003, 	-- Tumor
+							at0004, 	-- Abscess
+							at0005, 	-- Angioma
+							at0023, 	-- Hematoma
+							at0006, 	-- Contusion
+							at0007, 	-- Cyst
+							at0008, 	-- Not assessable
+							at0009]	-- Unspecified
+						}
+					}
+				}
+			}
+			allow_archetype CLUSTER[at0025] occurrences matches {0..*} matches {	-- Location
+				include
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.space_occupying_lesion_kidney(-[a-zA-Z0-9_]+)*\.v0|openEHR-EHR-CLUSTER\.space_occupying_lesion_pancreas(-[a-zA-Z0-9_]+)*\.v0|openEHR-EHR-CLUSTER\.space_occupying_lesion_gall_bladder_and_bile_duct(-[a-zA-Z0-9_]+)*\.v0|openEHR-EHR-CLUSTER\.liver_segments(-[a-zA-Z0-9_]+)*\.v0/}
+			}
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Remark
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Space occupying lesion">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Remark">
+					description = <"*">
+				>
+				["at0002"] = <
+					text = <"Lesion Type">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tumor">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Abscess">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Angioma">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Contusion">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Cyst">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Not assessable">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Unspecified">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Hematoma">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"Location">
+					description = <"*">
+				>
+			>
+		>
+	>

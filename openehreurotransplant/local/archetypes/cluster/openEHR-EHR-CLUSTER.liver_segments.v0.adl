@@ -1,0 +1,110 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.liver_segments.v0
+
+concept
+	[at0000]	-- Liver segments
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To define the specific location in the Liver.">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"8B4366AEFBAE5E19531CF615FDA43A0C">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Liver segments
+		items cardinality matches {1..2; unordered} matches {
+			ELEMENT[at0009] occurrences matches {0..1} matches {	-- Segments
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0011, 	-- I
+							at0012, 	-- II
+							at0013, 	-- III
+							at0014, 	-- IV a
+							at0015, 	-- IV b
+							at0016, 	-- V
+							at0017, 	-- VI
+							at0018, 	-- VII
+							at0019]	-- VIII
+						}
+					}
+				}
+			}
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Comment
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Liver segments">
+					description = <"Liver segments of the Liver">
+				>
+				["at0001"] = <
+					text = <"Comment">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Segments">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"I">
+					description = <"Segment 1">
+				>
+				["at0012"] = <
+					text = <"II">
+					description = <"Segment 2">
+				>
+				["at0013"] = <
+					text = <"III">
+					description = <"Segment 3">
+				>
+				["at0014"] = <
+					text = <"IV a">
+					description = <"Segment 4a">
+				>
+				["at0015"] = <
+					text = <"IV b">
+					description = <"Segment 4b">
+				>
+				["at0016"] = <
+					text = <"V">
+					description = <"Segment 5">
+				>
+				["at0017"] = <
+					text = <"VI">
+					description = <"Serment 6">
+				>
+				["at0018"] = <
+					text = <"VII">
+					description = <"Segment 7">
+				>
+				["at0019"] = <
+					text = <"VIII">
+					description = <"Segment 8">
+				>
+			>
+		>
+	>
