@@ -1,0 +1,111 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.hepatoblastoma.v0
+
+concept
+	[at0000]	-- Hepatoblastoma
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Criteria for the indication hepatoblastoma in order to request for a highly urgent Liver transplantation">
+			use = <"Use as a checklist for the criteria hepatoblastoma, used to request for a highly urgent liver transplantation">
+			misuse = <"Not to be used for the indication of transplantation. Or as single problem/diagnosis outside the higly urgent liver transplantation setting. Use the problem diagnosis Archetype for this.">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"2042C5D88F13CE8DDCCCF07D61A63112">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Hepatoblastoma
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0005] occurrences matches {0..1} matches {	-- Patient is <16 yrs old
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0006] occurrences matches {0..1} matches {	-- Hepatoblastoma is proven in liver biopsy
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0007] occurrences matches {0..1} matches {	-- Patient is a suitable candidate for liver tx after chemo treatment
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0008] occurrences matches {0..1} matches {	-- Absence or complete resection of extrahepatic metastases
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Hepatoblastoma">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"Patient is <16 yrs old">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Hepatoblastoma is proven in liver biopsy">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Patient is a suitable candidate for liver tx after chemo treatment">
+					description = <"Recipient is a suitable candidate for liver transplantation after chemotherapeutical treatment">
+				>
+				["at0008"] = <
+					text = <"Absence or complete resection of extrahepatic metastases">
+					description = <"*">
+				>
+			>
+		>
+	>

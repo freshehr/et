@@ -1,0 +1,91 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.encephalopathy_grade.v0
+
+concept
+	[at0000]	-- Encephalopathy grade
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["email"] = <"hildi@freshehr.com">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["date"] = <"2018-02-18">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the capture of encephalopathy grade.">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"Initial">
+	other_contributors = <>
+	other_details = <
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["MD5-CAM-1.0.1"] = <"06F5117DB4AD2CC32DD3980F5DA9046E">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Encephalopathy grade
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Grade
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002, 	-- None
+							at0003, 	-- Grade I
+							at0004, 	-- Grade II
+							at0005, 	-- Grade III
+							at0006, 	-- Grade IVa
+							at0007]	-- Grade IVb
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Encephalopathy grade">
+					description = <"For the recording of encephalopathy grade.">
+				>
+				["at0001"] = <
+					text = <"Grade">
+					description = <"Grade of encephalopathy.">
+				>
+				["at0002"] = <
+					text = <"None">
+					description = <"No Encephalopathy">
+				>
+				["at0003"] = <
+					text = <"Grade I">
+					description = <"Grade I- Mild confusion, euphoria, anxiety or depression, reversed sleep rhythm, slurres speech.">
+				>
+				["at0004"] = <
+					text = <"Grade II">
+					description = <"Drowsiness, lethargy, gross deficits in ability to perform mental tasks, relatively moderate confusion">
+				>
+				["at0005"] = <
+					text = <"Grade III">
+					description = <"Somnolence but arrousable, severe confusio, inability to perform mental tasks">
+				>
+				["at0006"] = <
+					text = <"Grade IVa">
+					description = <"Coma with response to painful stimuli.">
+				>
+				["at0007"] = <
+					text = <"Grade IVb">
+					description = <"Coma without response to painful stimuli.">
+				>
+			>
+		>
+	>

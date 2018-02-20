@@ -1,0 +1,240 @@
+﻿archetype (adl_version=1.4; uid=440253f1-61d9-49d3-ae27-58129bbeb6e0)
+	openEHR-EHR-CLUSTER.laboratory_test_panel-creatinine-moles_volume.v0
+specialize
+	openEHR-EHR-CLUSTER.laboratory_test_panel-creatinine.v0
+
+concept
+	[at0000.1.1]	-- Creatinine [Moles/volume] in Serum or Plasma
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Bert Verhees">
+		["email"] = <"bert.verhees@rosa.nl">
+		["organisation"] = <"ROSA Software">
+		["date"] = <"2017-04-06">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record laboratory test results of Serum Creatinine.
+">
+			use = <"To record laboratory test results of Creatinine measured in Serum/Plasma
+
+Creatinine measurement (procedure)
+
+LOINC::14682-9::Creatinine [Moles/volume] in Serum or Plasma
+Property  	Time  	System  	Scale  	Method
+SCnc 	Pt 	Ser/Plas 	Qn
+
+Creatinine or creatine anhydride, is a breakdown product of creatine phosphate in muscle. The loss of water molecule from creatine results in the formation of creatinine. It is transferred to the kidneys by blood plasma, whereupon it is eliminated by glomular filtration and partial tubular excretion. Creatinine is usually produced at a fairly constant rate and measuring its serum level is a simple test. A rise in blood creatinine levels is observed only with marked damage to functioning nephrons; therefore this test is not suitable for detecting early kidney disease. Creatine and creatinine are metabolized in the kidneys, muscle, liver and pancreas.
+Copyright: Copyright ©2005-2009 Genome Alberta (Reference to original publication: Wishart DS, Knox C, Guo AC, et al. HMDB: a knowledgebase for the human metabolome. Nucleic Acids Res. 2009 37(Database issue):D603-610.)
+Source: Human Metabolome Database, URL: Creatinine
+
+NB: This is not cloned in templates from laboratory-tests but specialized. The reason for this is that maintainability becomes hard when there are changes in the model, but the correspondending constraint can occur in more templates (which will happen because, ET decided to have archetypes which can occur in several templates.
+">
+			keywords = <"laboratory", "pathology", "panel", "analyte">
+			misuse = <"Should not be used to record test results for Creatinine measured in Urine.">
+			copyright = <"© openEHR Foundation">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Heather Leslie, Ocean Informatics, Australia", "Nasjonal IKT, Norway", "Ian McNicoll, freshEHR Clinical Informatics, UK">
+	other_details = <
+		["revision"] = <"0.0.1-alpha">
+		["original_publisher"] = <"openEHR Foundation">
+		["build_uid"] = <"1de25cad-6878-4d50-9aba-1d9727401c8e">
+		["original_namespace"] = <"org.openehr">
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["references"] = <"Based on NEHTA 'Pathology Test' archetype. Available from: http://dcm.nehta.org.au/ckm/OKM.html#showarchetype_1013.1.839_8
+
+Pathology (Data Specifications) Version 1.0 [Internet]. Sydney, Australia: National E-Health Transition Authority; 2007 May 29 [cited 2011 Jul 11]; Available at http://www.nehta.gov.au/component/docman/doc_download/962-pathology-v10.
+
+Laboratory Technical Framework, Volume 3: Content, Revision 3.0 [Internet]. USA: IHE International; 2011 May 19; [cited 2011 Jul 11]. Available from: http://www.ihe.net/Technical_Framework/index.cfm#laboratory
+
+Hl7 FHIR Observation resource: HL7 FHIR; Available from http://www.hl7.org/implement/standards/fhir/observation.html">
+		["MD5-CAM-1.0.1"] = <"98E7F3187E1BE32FBBBF43A01A4C54FE">
+		["custodian_namespace"] = <"org.openehr">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["current_contact"] = <"Bert Verhees, ROSA Software<bert.verhees@rosa.nl>">
+	>
+
+definition
+	CLUSTER[at0000.1.1] matches {	-- Creatinine [Moles/volume] in Serum or Plasma
+		items cardinality matches {1..*; unordered} matches {
+			CLUSTER[at0002.1] occurrences matches {0..1} matches {	-- Creatinine
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0006.1] occurrences matches {0..1} matches {	-- Result status timestamp
+						value matches {
+							DV_DATE_TIME matches {
+								value matches {yyyy-mm-ddTHH:MM:SS}
+							}
+						}
+					}
+					ELEMENT[at0001.1.1] occurrences matches {0..1} matches {	-- LOINC::14682-9::Creatinine [Moles/volume] in Serum or Plasma
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::119]>
+								list = <
+									["1"] = <
+										units = <"umol/dl">
+										magnitude = <|0.0..999.999|>
+										precision = <|3|>
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0003.1] occurrences matches {0..1} matches {	-- Comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0004.1] occurrences matches {0..1} matches {	-- Reference range guidance
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0005.1] occurrences matches {0..1} matches {	-- Result status
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {[local::at0012]}		-- Not requested
+							}
+						}
+					}
+					allow_archetype CLUSTER[at0014.1] occurrences matches {0..*} matches {	-- Result detail
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+			allow_archetype CLUSTER[at0013.1] occurrences matches {0..*} matches {	-- Other detail
+				include
+					archetype_id/value matches {/.*/}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Laboratory test panel">
+					description = <"Laboratory test result as a single value or in a panel/battery format common to clinical pathology testing.">
+				>
+				["at0000.1"] = <
+					text = <"Creatinine">
+					description = <"Specific detailed result on Serum Creatinine test, including both the value of the result item, and additional information that may be useful for clinical interpretation.">
+				>
+				["at0000.1.1"] = <
+					text = <"Creatinine [Moles/volume] in Serum or Plasma">
+					description = <"Specific detailed result on Serum Creatinine test, including both the value of the result item, and additional information that may be useful for clinical interpretation.!">
+				>
+				["at0001"] = <
+					text = <"Result value">
+					description = <"Actual value of the result. The name of this element is normally replaced in a template or at run-time to relfect the actual analyte e.g. Serum sodium and will often be coded.">
+					hl7v2_mapping = <"OBX.2,OBX.5,OBX.6; OBX-3-observation identifier">
+					fhir_mapping = <"Observation.result; Observation.name">
+				>
+				["at0001.1"] = <
+					text = <"Result value">
+					description = <"Actual value of the result. The name of this element is normally replaced in a template or at run-time to relfect the actual analyte e.g. Serum sodium and will often be coded.">
+				>
+				["at0001.1.1"] = <
+					text = <"LOINC::14682-9::Creatinine [Moles/volume] in Serum or Plasma">
+					description = <"Actual value of the result. The name of this element is normally replaced in a template or at run-time to relfect the actual analyte e.g. Serum sodium and will often be coded.">
+				>
+				["at0002"] = <
+					text = <"Creatinine">
+					description = <"Specific detailed result, including both the value of the result item, and additional information that may be useful for clinical interpretation.">
+				>
+				["at0002.1"] = <
+					text = <"Creatinine">
+					description = <"Specific detailed result on Serum Creatinine test, including both the value of the result item, and additional information that may be useful for clinical interpretation.">
+				>
+				["at0003"] = <
+					text = <"Comment">
+					description = <"Comment about the Result.">
+					hl7v2_mapping = <"NTE.3">
+					fhir_mapping = <"Observation.comments">
+				>
+				["at0003.1"] = <
+					text = <"Comment">
+					description = <"Comment about the Result.">
+				>
+				["at0004"] = <
+					text = <"Reference range guidance">
+					description = <"Additional advice on the applicability of the reference range.">
+				>
+				["at0004.1"] = <
+					text = <"Reference range guidance">
+					description = <"Additional advice on the applicability of the reference range.">
+				>
+				["at0005"] = <
+					text = <"Result status">
+					description = <"The status of the result value.">
+					hl7v2_mapping = <"OBX-11-observation result status">
+					fhir_mapping = <"status">
+				>
+				["at0005.1"] = <
+					text = <"Result status">
+					description = <"The status of the result value.">
+				>
+				["at0006"] = <
+					text = <"Result status timestamp">
+					description = <"The date and/or time that the entire result was issued for the recorded ‘Result status’.">
+					hl7v2_mapping = <"OBX-22 and/or OBX-19">
+					fhir_mapping = <"Observation.issued">
+				>
+				["at0006.1"] = <
+					text = <"Result status timestamp">
+					description = <"The date and/or time that the entire result was issued for the recorded ‘Result status’.">
+				>
+				["at0007"] = <
+					text = <"Registered">
+					description = <"No result yet available.">
+				>
+				["at0008"] = <
+					text = <"Interim">
+					description = <"This is an initial or interim result: data may be missing or verification not been performed.">
+				>
+				["at0009"] = <
+					text = <"Final">
+					description = <"The result is complete and verified by the responsible pathologist.">
+				>
+				["at0010"] = <
+					text = <"Amended">
+					description = <"The result has been modified subsequent to being Final, and is complete and verified by the responsible pathologist.">
+				>
+				["at0011"] = <
+					text = <"Cancelled/Aborted">
+					description = <"The result is unavailable because the test was not started or not completed.">
+				>
+				["at0012"] = <
+					text = <"Not requested">
+					description = <"The result is not available as the test was not requested.">
+				>
+				["at0013"] = <
+					text = <"Other detail">
+					description = <"Further details including the specimen for the panel or a further nested panel.">
+				>
+				["at0013.1"] = <
+					text = <"Other detail">
+					description = <"Further details including the specimen for the panel or a further nested panel.">
+				>
+				["at0014"] = <
+					text = <"Result detail">
+					description = <"Further detail regarding an individual result.">
+				>
+				["at0014.1"] = <
+					text = <"Result detail">
+					description = <"Further detail regarding an individual result.">
+				>
+				["at0015"] = <
+					text = <"New element">
+					description = <"*">
+				>
+			>
+		>
+	>

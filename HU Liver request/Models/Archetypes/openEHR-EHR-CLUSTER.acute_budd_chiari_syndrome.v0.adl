@@ -1,0 +1,75 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.acute_budd_chiari_syndrome.v0
+
+concept
+	[at0000]	-- Acute budd chiari syndrome
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To report on acute Budd Chiari syndrome  ( BS is an uncommon disorder characterized by obstruction of hepatic venous outflow) as criteria for a high urgent Liver tranplantation.">
+			use = <"Use in the context of a request for high urgent Liver transplantation.">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"Initial">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"6F286097487E04C7C3DD0FBBFCA989A7">
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Acute budd chiari syndrome
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0004] occurrences matches {0..1} matches {	-- Comment
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {	-- INR>1.5
+				value matches {
+					DV_BOOLEAN matches {
+						value matches {True, False}
+					}
+				}
+			}
+			ELEMENT[at0006] occurrences matches {0..1} matches {	-- Hepatic Encephalopathy
+				value matches {
+					DV_BOOLEAN matches {
+						value matches {True, False}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Acute budd chiari syndrome">
+					description = <"Acute Budd Chiari syndrome">
+				>
+				["at0004"] = <
+					text = <"Comment">
+					description = <"Comment on criteria Acute Budd Chiari syndrome">
+				>
+				["at0005"] = <
+					text = <"INR>1.5">
+					description = <"Does the patient have an INR above 1.5.">
+				>
+				["at0006"] = <
+					text = <"Hepatic Encephalopathy">
+					description = <"Does the patient have Encephalopathy.">
+				>
+			>
+		>
+	>

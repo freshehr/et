@@ -1,0 +1,98 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.acute_budd_chiari_syndrome.v0
+
+concept
+	[at0000]	-- Acute budd chiari syndrome
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To report on acute Budd Chiari syndrome  ( BS is an uncommon disorder characterized by obstruction of hepatic venous outflow) as criteria for a high urgent Liver tranplantation.">
+			use = <"Use in the context of a request for high urgent Liver transplantation.">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"FE4D4A0D66F6777A6303393CFAF23435">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Acute budd chiari syndrome
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Comment
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0005] occurrences matches {0..1} matches {	-- INR>1.5
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0006] occurrences matches {0..1} matches {	-- Hepatic Encephalopathy
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Acute budd chiari syndrome">
+					description = <"Acute Budd Chiari syndrome">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Comment">
+					description = <"Comment on criteria Acute Budd Chiari syndrome">
+				>
+				["at0005"] = <
+					text = <"INR>1.5">
+					description = <"Does the patient have an INR above 1.5">
+				>
+				["at0006"] = <
+					text = <"Hepatic Encephalopathy">
+					description = <"Does the patient have Encephalopathy">
+				>
+			>
+		>
+	>

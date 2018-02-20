@@ -1,0 +1,102 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.meld_score.v0
+
+concept
+	[at0000]	-- Meld score
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"The Model for End-Stage Liver Disease, or MELD, is a scoring system for assessing the severity of chronic liver disease. It was initially developed to predict mortality within three months of surgery in patients who had undergone a transjugular intrahepatic portosystemic shunt (TIPS) procedure, and was subsequently found to be useful in determining prognosis and prioritizing for receipt of a liver transplant. This score is now used by the United Network for Organ Sharing (UNOS) and Eurotransplant for prioritizing allocation of liver transplants instead of the older Child-Pugh score">
+			use = <"This score is now used by the United Network for Organ Sharing (UNOS) and Eurotransplant for prioritizing allocation of liver transplants instead of the older Child-Pugh score.
+
+The MELD Score formula is as follows:
+MELD Score = 0.957 x Loge (creatinine mg/dL) + 0. 378 x Loge (bilirubin mg/dL) + 1.120 x Loge (INR) + 0.643">
+			misuse = <"Not to be used to record the result of the three individual tests. ">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"E009F3BC4C0356B1C9D8FC22EF950D1D">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Meld score
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0005] occurrences matches {0..1} matches {	-- Date time MELD score
+										value matches {
+											DV_DATE_TIME matches {
+												value matches {yyyy-mm-ddTHH:MM:SS}
+											}
+										}
+									}
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- MELD score
+										name matches {
+											DV_TEXT matches {*}
+										}
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::380]>
+												list = <
+													["1"] = <
+														units = <"1">
+														magnitude = <|6.0..40.0|>
+														precision = <|0|>
+													>
+												>
+											>
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Meld score">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"MELD score">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Date time MELD score">
+					description = <"*">
+				>
+			>
+		>
+	>

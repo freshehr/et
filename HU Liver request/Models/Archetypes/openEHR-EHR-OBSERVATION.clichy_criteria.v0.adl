@@ -1,0 +1,123 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.clichy_criteria.v0
+
+concept
+	[at0000]	-- Clichy criteria
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To report if an individual fullfills the Clichy criteria,a group of criteria proposed in termining the survival of individuals with acute liver failure.">
+			use = <"Used for an indication for a highly urgent liver transplant">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"F311EDD8B467D78349AB8B55E2992BE1">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Clichy criteria
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Hepatic Encephalopathy Grade III or IV
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0005] occurrences matches {0..1} matches {	-- Factor V ≤ 20% of normal if age <30 yrs
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0006] occurrences matches {0..1} matches {	-- Factor V ≤ 30% of normal if age ≥30 yrs
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0007] occurrences matches {0..1} matches {	-- Conclusion
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0008, 	-- Fulfills Clichy criteria
+													at0009]	-- Does not fulfill Clichy criteria
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Clichy criteria">
+					description = <"To report on the Clichy criteria.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Hepatic Encephalopathy Grade III or IV">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Factor V ≤ 20% of normal if age <30 yrs">
+					description = <"Factor V (pronounced factor five) an Increased tendency <=20% for patients <30 yrs of age">
+				>
+				["at0006"] = <
+					text = <"Factor V ≤ 30% of normal if age ≥30 yrs">
+					description = <"Factor V (pronounced factor five) an Increased tendency <=30% for patients >= 30 yrs of age">
+				>
+				["at0007"] = <
+					text = <"Conclusion">
+					description = <"Conclusion whether the patient fulfills the criteria mentioned above. ">
+				>
+				["at0008"] = <
+					text = <"Fulfills Clichy criteria">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Does not fulfill Clichy criteria">
+					description = <"*">
+				>
+			>
+		>
+	>
